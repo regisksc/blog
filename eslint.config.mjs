@@ -1,0 +1,31 @@
+import js from "@eslint/js"
+import tsParser from "@typescript-eslint/parser"
+import tsPlugin from "@typescript-eslint/eslint-plugin"
+import globals from "globals"
+
+export default [
+  {
+    ignores: [".next/**", "out/**", "node_modules/**", ".understand-anything/**"],
+  },
+  js.configs.recommended,
+  {
+    files: ["**/*.{ts,tsx,js,mjs}"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
+      },
+      globals: { ...globals.browser, ...globals.node },
+    },
+    plugins: { "@typescript-eslint": tsPlugin },
+    rules: {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" }],
+      "no-undef": "off",
+      "no-unused": "off",
+      "no-empty": ["error", { allowEmptyCatch: true }],
+    },
+  },
+]
