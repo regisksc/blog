@@ -1,0 +1,15 @@
+import { execSync } from 'child_process'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+let commitSha = process.env.SOURCE_COMMIT || 'unknown'
+try {
+  commitSha = execSync('git rev-parse --short HEAD').toString().trim()
+} catch {}
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
+
+export default nextConfig
