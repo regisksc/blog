@@ -27,3 +27,21 @@ export function resolveCssVar(prop: string): [number, number, number] {
   const d = ctx.getImageData(0, 0, 1, 1).data
   return [d[0], d[1], d[2]]
 }
+
+
+/**
+ * Draws a single glyph at (x, y) with the given color and font.
+ * Used by both ascii-background and matrix-rain canvas renderers.
+ */
+export function drawGlyph(
+  ctx: CanvasRenderingContext2D,
+  char: string,
+  x: number,
+  y: number,
+  color: [number, number, number],
+  font: string,
+) {
+  ctx.fillStyle = "rgb(" + color[0] + "," + color[1] + "," + color[2] + ")"
+  ctx.font = font
+  ctx.fillText(char, x, y)
+}
