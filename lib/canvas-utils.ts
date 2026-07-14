@@ -1,4 +1,11 @@
 /**
+ * Clears the entire canvas (covers both width and height).
+ */
+export function clearRect(ctx: CanvasRenderingContext2D, width: number, height: number) {
+  ctx.clearRect(0, 0, width, height)
+}
+
+/**
  * Resolve a CSS custom property to an sRGB tuple usable by canvas.
  * Uses a 1x1 canvas readback to reliably convert any color format
  * (oklch, lab, etc.) that browsers may serialize from getComputedStyle.
