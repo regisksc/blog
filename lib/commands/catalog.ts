@@ -13,3 +13,6 @@ export const sectionAliases: Record<string, Section> = {
 export const HELP_TEXT = [
   "about             who I am (aliases: who, bio, whoami)",
 ].join("\n")
+
+
+export const CLEAR_TEXT = ""
