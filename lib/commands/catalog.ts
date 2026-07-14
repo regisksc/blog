@@ -16,3 +16,8 @@ export const HELP_TEXT = [
 
 
 export const CLEAR_TEXT = ""
+
+
+export const staticCommands: Record<string, string> = {
+  theme: "try: theme green | amber | rose | cyan | violet | cycle",
+}
