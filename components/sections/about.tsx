@@ -97,8 +97,11 @@ export function AboutSection() {
                   key={item}
                   onMouseEnter={() => setHoveredSkill(item)}
                   onMouseLeave={() => setHoveredSkill(null)}
-                  className={`cursor-default ${hoveredSkill === item ? "text-foreground" : "text-muted-foreground"}`}
-                >{item}</li>
+                  className={`cursor-default relative pl-3 transition-all duration-200 ${hoveredSkill === item ? "text-foreground" : "text-muted-foreground"}`}
+                >
+                  <span data-fragment-keep="true" className={`absolute left-0 text-primary transition-all duration-200 ${hoveredSkill === item ? "opacity-100" : "opacity-0"}`}>&gt;</span>
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
