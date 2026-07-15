@@ -1,4 +1,5 @@
 import { Inter, JetBrains_Mono } from "next/font/google"
+import { RunCommandProvider } from "@/lib/providers/run-command"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
@@ -6,7 +7,11 @@ const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body>{children}</body>
+      <body>
+        <RunCommandProvider>
+          {children}
+        </RunCommandProvider>
+      </body>
     </html>
   )
 }
