@@ -1,3 +1,18 @@
+
+function CommandLink({ command, label }: { command: string; label: string }) {
+  const run = useRunCommand()
+  return (
+    <button
+      type="button"
+      onClick={() => run(command)}
+      className="text-sm font-mono text-primary hover:text-foreground"
+    >
+      <span>${command}</span>
+      <span>— {label}</span>
+    </button>
+  )
+}
+
 "use client"
 
 import { useEffect, useState, useRef } from "react"
