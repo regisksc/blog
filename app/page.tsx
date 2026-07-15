@@ -1,9 +1,12 @@
+import { FragmentExplosionProvider } from "@/lib/providers/fragment-explosion"
 import { AboutSection } from "@/components/sections/about"
 
 export default function Page() {
   return (
-    <main>
-      <AboutSection />
-    </main>
+    <FragmentExplosionProvider>
+      <main>
+        <AboutSection />
+      </main>
+    </FragmentExplosionProvider>
   )
 }
