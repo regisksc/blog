@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
 import { AsciiBanner } from "@/components/ui/ascii-banner"
 
@@ -28,6 +29,10 @@ export function AboutSection() {
 
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex]
+    if (reducedMotion) {
+      setDisplayText(currentPhrase)
+      return
+    }
     if (displayText.length < currentPhrase.length) {
       typingTimeoutRef.current = setTimeout(() => {
         setDisplayText(currentPhrase.slice(0, displayText.length + 1))
