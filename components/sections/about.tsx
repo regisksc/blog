@@ -1,3 +1,7 @@
+"use client"
+
+import { useState } from "react"
+
 import { AsciiBanner } from "@/components/ui/ascii-banner"
 
 const skills = [
@@ -8,6 +12,7 @@ const skills = [
 ]
 
 export function AboutSection() {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
   return (
     <div>
       <AsciiBanner />
@@ -20,7 +25,12 @@ export function AboutSection() {
             <h3>{group.category}</h3>
             <ul>
               {group.items.map((item) => (
-                <li key={item}>{item}</li>
+                <li
+                  key={item}
+                  onMouseEnter={() => setHoveredSkill(item)}
+                  onMouseLeave={() => setHoveredSkill(null)}
+                  className={`cursor-default ${hoveredSkill === item ? "text-foreground" : "text-muted-foreground"}`}
+                >{item}</li>
               ))}
             </ul>
           </div>
