@@ -10,3 +10,5 @@ npm run dev
 ```
 
 Then open <http://localhost:3000>.
+
+The catalog of exposed commands lives in `lib/commands/catalog.ts`.
