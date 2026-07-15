@@ -1,7 +1,9 @@
+import { AsciiBanner } from "@/components/ui/ascii-banner"
+
 export function AboutSection() {
   return (
     <div>
-      <h1>About</h1>
+      <AsciiBanner />
     </div>
   )
 }
