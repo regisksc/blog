@@ -25,6 +25,17 @@ const skills = [
 ]
 
 export function AboutSection() {
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex]
+    if (displayText.length < currentPhrase.length) {
+      typingTimeoutRef.current = setTimeout(() => {
+        setDisplayText(currentPhrase.slice(0, displayText.length + 1))
+      }, 60)
+      return () => { if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current) }
+    }
+  }, [displayText, phraseIndex])
+
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
   const [displayText, setDisplayText] = useState("")
