@@ -4,6 +4,19 @@ import { useState } from "react"
 
 import { AsciiBanner } from "@/components/ui/ascii-banner"
 
+
+
+const phrases = [
+  "I ship reliable, accessible mobile apps.",
+  "I make Flutter and native work together.",
+  "I build foundations teams can scale.",
+  "I turn complexity into clear architecture.",
+  "I design for offline and poor networks.",
+  "I fix production issues at the root.",
+  "I balance business needs with tech reality.",
+  "I take products from idea to release.",
+]
+
 const skills = [
   { category: "Flutter", items: ["BLoC", "Riverpod", "Platform Channels", "Widgetbook", "Animations", "Hive / Drift"] },
   { category: "Mobile", items: ["UIKit", "SwiftUI", "Combine", "RxSwift", "Android", "Compose"] },
