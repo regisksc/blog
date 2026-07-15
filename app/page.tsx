@@ -1,3 +1,9 @@
+import { AboutSection } from "@/components/sections/about"
+
 export default function Page() {
-  return <main />
+  return (
+    <main>
+      <AboutSection />
+    </main>
+  )
 }
