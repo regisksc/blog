@@ -26,6 +26,12 @@ const skills = [
 
 export function AboutSection() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+
+  const [displayText, setDisplayText] = useState("")
+  const [phraseIndex, setPhraseIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
   return (
     <div>
       <AsciiBanner />
