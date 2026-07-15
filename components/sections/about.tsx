@@ -36,6 +36,24 @@ export function AboutSection() {
     }
   }, [displayText, phraseIndex])
 
+
+  useEffect(() => {
+    if (displayText.length === phrases[phraseIndex].length) {
+      typingTimeoutRef.current = setTimeout(() => setIsDeleting(true), 2500)
+      return () => { if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current) }
+    }
+    if (isDeleting && displayText.length > 0) {
+      typingTimeoutRef.current = setTimeout(() => {
+        setDisplayText(prev => prev.slice(0, -1))
+      }, 30)
+      return () => { if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current) }
+    }
+    if (isDeleting && displayText.length === 0) {
+      setIsDeleting(false)
+      setPhraseIndex(prev => (prev + 1) % phrases.length)
+    }
+  }, [displayText, isDeleting, phraseIndex])
+
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
   const [displayText, setDisplayText] = useState("")
