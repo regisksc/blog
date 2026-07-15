@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 import { AsciiBanner } from "@/components/ui/ascii-banner"
 
