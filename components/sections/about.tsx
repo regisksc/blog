@@ -104,6 +104,11 @@ export function AboutSection() {
           </div>
         ))}
       </div>
+    <div className="flex flex-wrap gap-6 pt-2 border-t border-border/50 mt-2">
+      <CommandLink command="xp" label="see my experience" />
+      <CommandLink command="contact" label="get in touch" />
+      <CommandLink command="lab" label="see experiments" />
+    </div>
     </div>
   )
 }
