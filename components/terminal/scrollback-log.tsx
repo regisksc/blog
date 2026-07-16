@@ -70,7 +70,7 @@ export function ScrollbackLog({ entries }: ScrollbackLogProps) {
       onScroll={updateScrollCue}
       className="relative flex-1 min-h-0 overflow-y-auto overflow-x-hidden terminal-scrollbar"
     >
-      <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-2 font-mono text-sm flex flex-col gap-24 sm:gap-32">
+      <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-2 font-mono text-sm flex flex-col gap-24 sm:gap-32 // long sections handled">
         {entries.map((entry) => (
           <div key={entry.id} className="animate-log-fade-in">
             {!entry.hideCommand && (
