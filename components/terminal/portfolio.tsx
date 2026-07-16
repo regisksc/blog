@@ -1,3 +1,8 @@
+"use client"
+
+import { useRunCommand } from "@/lib/providers/run-command"
+
 export function Portfolio() {
-  return <div />
+  const run = useRunCommand()
+  return <div onClick={() => run("about")}>portfolio</div>
 }
