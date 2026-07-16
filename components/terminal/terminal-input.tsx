@@ -138,7 +138,7 @@ export const TerminalInput = forwardRef<TerminalInputHandle, TerminalInputProps>
       onClick={handleContainerClick}
     >
       <div className="max-w-4xl mx-auto">
-        <form onSubmit={handleSubmit} className="flex items-center gap-3">
+        <div className="font-mono text-sm"><span className="text-primary">$</span> <form onSubmit={handleSubmit} className="flex items-center gap-3">
           <span className="font-mono text-sm select-none shrink-0">
             <span className="hidden sm:inline text-primary">regis@dev </span>
             <span className="text-muted-foreground">~ </span>
@@ -163,7 +163,7 @@ export const TerminalInput = forwardRef<TerminalInputHandle, TerminalInputProps>
               disabled={disabled || isAutoTyping}
             />
           </div>
-        </form>
+        </form></div>
       </div>
     </div>
   )
