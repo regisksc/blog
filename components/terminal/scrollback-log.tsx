@@ -9,5 +9,5 @@ export interface LogEntry {
 }
 
 export function ScrollbackLog({ entries }: { entries: LogEntry[] }) {
-  return <div>{entries.length}</div>
+  return <div className="overflow-y-auto p-4">{entries.length}</div>
 }
