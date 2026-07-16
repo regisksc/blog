@@ -15,6 +15,7 @@ export function ScrollbackLog({ entries }: { entries: LogEntry[] }) {
         <div key={e.id}>
           <span>regis@dev ~ ❯</span>
           <span>{e.command}</span>
+          {e.node && <div>{e.node}</div>}
         </div>
       ))}
     </div>
