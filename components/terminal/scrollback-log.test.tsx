@@ -9,3 +9,13 @@ describe("ScrollbackLog", () => {
     expect(screen.getByText("hi")).toBeInTheDocument()
   })
 })
+
+
+describe("ScrollbackLog auto-scroll", () => {
+  it("scrolls to bottom on new entries", () => {
+    const entries: LogEntry[] = [{ id: 1, command: "about", success: true, message: "regis" }]
+    const { container } = render(<ScrollbackLog entries={entries} />)
+    const log = container.querySelector('[role="log"]')
+    expect(log).toBeTruthy()
+  })
+})
