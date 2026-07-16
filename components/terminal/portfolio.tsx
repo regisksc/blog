@@ -1,3 +1,4 @@
+import { useState } from "react"
 "use client"
 
 import { useState } from "react"
@@ -6,9 +7,10 @@ import { useState } from "react"
 import { useRunCommand } from "@/lib/providers/run-command"
 import { ScrollbackLog } from "./scrollback-log"
 import { TerminalInput } from "./terminal-input"
+import { AboutSection } from "../sections/about"
 
 export function Portfolio() {
   const [log, setLog] = useState<any[]>([])
   const run = useRunCommand()
-  return <div><ScrollbackLog entries={log} /><TerminalInput onCommand={run} /></div>
+  return <div><ScrollbackLog entries={log} /><TerminalInput onCommand={(cmd) => { if (cmd === "about") setLog([{id: 1, command: cmd, success: true, node: <AboutSection />}]) ; run(cmd) }} /></div>
 }
