@@ -166,3 +166,4 @@ describe("randomized responses", () => {
     expect(messageFor("uptime")).toBe("session age: 0 days; still reviewing the diff.")
   })
 })
+// test new aliases
