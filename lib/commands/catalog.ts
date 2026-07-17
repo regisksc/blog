@@ -189,4 +189,4 @@ export const HELP_TEXT = [
   "secret            reveal one hidden command not listed here",
   "",
   "Tab completes selected commands; plenty more reward guessing.",
-].join("\n")
+].join("\n")// contact aliases
