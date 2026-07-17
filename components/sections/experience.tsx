@@ -194,3 +194,4 @@ export function ExperienceSection() {
 // card layout grid
 // hover detail reveal
 // card spacing rhythm
+// hover delay
