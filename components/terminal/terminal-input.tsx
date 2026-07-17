@@ -92,7 +92,8 @@ export const TerminalInput = forwardRef<TerminalInputHandle, TerminalInputProps>
     }
   }, [])
 
-  // Refocus on click anywhere in the container
+  // Arrow keys skip empty history.
+    // Refocus on click anywhere in the container
   const handleContainerClick = () => {
     if (disabled) return
     inputRef.current?.focus()
