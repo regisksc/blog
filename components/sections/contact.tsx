@@ -1,0 +1,200 @@
+"use client"
+
+import { useState, useEffect, useRef } from "react"
+import { ArrowUpRight, Check, Copy, Linkedin } from "lucide-react"
+import { siGithub, siWhatsapp, type SimpleIcon as SimpleIconType } from "simple-icons"
+
+import { SimpleIcon } from "@/components/ui/simple-icon"
+
+interface LinkItem {
+  label: string
+  href: string
+  handle: string
+  icon?: SimpleIconType
+  isLinkedin?: boolean
+}
+
+const whatsappMessage = "Hi Regis, I came across your portfolio and I'd like to learn more about your services."
+
+const links: LinkItem[] = [
+  { label: "GitHub", href: "https://github.com/regisksc", handle: "@regisksc", icon: siGithub },
+  { label: "LinkedIn", href: "https://linkedin.com/in/regis-kian", handle: "/in/regis-kian", isLinkedin: true },
+  { label: "WhatsApp", href: `https://wa.me/5531996389965?text=${encodeURIComponent(whatsappMessage)}`, handle: "+55 31 99638-9965", icon: siWhatsapp },
+]
+
+const email = "sdev.regis@gmail.com"
+
+export function ContactSection() {
+  const [visibleLines, setVisibleLines] = useState(0)
+  const [copied, setCopied] = useState(false)
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
+  const [host, setHost] = useState("localhost:3000")
+  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const totalLines = 6
+
+  useEffect(() => {
+    setHost(window.location.host)
+  }, [])
+
+  // Reveal lines one by one
+  useEffect(() => {
+    setVisibleLines(0)
+    const interval = setInterval(() => {
+      setVisibleLines(prev => {
+        if (prev >= totalLines) {
+          clearInterval(interval)
+          return prev
+        }
+        return prev + 1
+      })
+    }, 80)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+    }
+  }, [])
+
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText(email)
+    setCopied(true)
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+    copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <div className="flex flex-col">
+      <div className="mb-6 sm:mb-8">
+        <div className="mb-4">
+          <p className="text-muted-foreground text-xs font-mono">
+            <span className="text-primary/60" aria-hidden="true"># </span>get in touch
+          </p>
+        </div>
+        <p 
+          className="text-muted-foreground leading-relaxed max-w-lg terminal-line"
+          style={{ animationDelay: "160ms", opacity: visibleLines >= 2 ? 1 : 0 }}
+        >
+          I&apos;m always interested in hearing about new projects and opportunities. 
+          Feel free to reach out if you want to collaborate or just say hello.
+        </p>
+      </div>
+
+      {/* Email */}
+      <div 
+        className="mb-8 terminal-line"
+        style={{ animationDelay: "240ms", opacity: visibleLines >= 3 ? 1 : 0 }}
+      >
+        <p className="text-xs font-mono text-primary mb-3 uppercase tracking-wider flex items-center gap-2">
+          <span data-fragment-keep="true" className="w-2 h-px bg-primary" />
+          Email
+        </p>
+        <button
+          onClick={copyEmail}
+          className="group flex flex-wrap items-center gap-3 text-lg text-foreground hover:text-primary transition-all duration-200"
+        >
+          <span className="font-mono relative break-all">
+            {email}
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+          </span>
+          <span className={`
+            transition-all duration-200
+            ${copied ? "scale-110" : "opacity-0 group-hover:opacity-100"}
+          `}>
+            {copied ? (
+              <Check className="w-4 h-4 text-primary animate-bounce-subtle" />
+            ) : (
+              <Copy className="w-4 h-4" />
+            )}
+          </span>
+        </button>
+        <p className={`
+          text-xs text-primary mt-2 font-mono transition-all duration-200
+          ${copied ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}
+        `}>
+          copied to clipboard
+        </p>
+      </div>
+
+      {/* Links */}
+      <div 
+        className="flex-1 terminal-line"
+        style={{ animationDelay: "320ms", opacity: visibleLines >= 4 ? 1 : 0 }}
+      >
+        <p className="text-xs font-mono text-primary mb-3 uppercase tracking-wider flex items-center gap-2">
+          <span data-fragment-keep="true" className="w-2 h-px bg-primary" />
+          Links
+        </p>
+        <div className="space-y-2">
+          {links.map((link) => {
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between py-3 px-3 -mx-3 rounded-lg transition-all duration-200 hover:bg-card"
+                onMouseEnter={() => setHoveredLink(link.label)}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
+                <div className="flex min-w-0 items-center gap-4">
+                  {link.isLinkedin ? (
+                    <Linkedin
+                      data-fragment-keep="true"
+                      className={`
+                        w-4 h-4 transition-all duration-200
+                        ${hoveredLink === link.label ? "text-primary scale-110" : "text-muted-foreground"}
+                      `}
+                    />
+                  ) : link.icon ? (
+                    <SimpleIcon
+                      data-fragment-keep="true"
+                      icon={link.icon}
+                      title={link.label}
+                      className={`
+                        w-4 h-4 transition-all duration-200
+                        ${hoveredLink === link.label ? "text-primary scale-110" : "text-muted-foreground"}
+                      `}
+                    />
+                  ) : null}
+                  <span className="text-foreground shrink-0">{link.label}</span>
+                  <span className="text-sm text-muted-foreground font-mono break-all [overflow-wrap:anywhere]">{link.handle}</span>
+                </div>
+                <ArrowUpRight className={`
+                  w-4 h-4 transition-all duration-200
+                  ${hoveredLink === link.label 
+                    ? "text-primary translate-x-0.5 -translate-y-0.5 opacity-100" 
+                    : "text-muted-foreground opacity-0"
+                  }
+                `} />
+              </a>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Terminal-style response */}
+      <div 
+        className="mt-auto pt-6 terminal-line"
+        style={{ animationDelay: "400ms", opacity: visibleLines >= 5 ? 1 : 0 }}
+      >
+        <div data-fragment-keep="true" className="p-4 bg-card rounded-lg border border-border font-mono text-sm overflow-hidden">
+          <div className="flex items-center gap-2 text-muted-foreground mb-2">
+            <span className="text-primary">$</span>
+            <span>curl https://{host}/status.json</span>
+          </div>
+          <div className="text-foreground">
+            <span className="text-primary">{"{"}</span>
+            <br />
+            <span className="ml-4">&quot;available&quot;: <span className="text-primary">true</span>,</span>
+            <br />
+            <span className="ml-4">&quot;response_time&quot;: <span className="text-muted-foreground">&quot;&lt; 24h&quot;</span></span>
+            <br />
+            <span className="text-primary">{"}"}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
