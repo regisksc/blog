@@ -203,3 +203,4 @@ export function ContactSection() {
 // status json curl block
 // uses simple-icon
 // email copy feedback
+// layout grid
