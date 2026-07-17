@@ -202,3 +202,4 @@ export function ContactSection() {
 // social links row
 // status json curl block
 // uses simple-icon
+// email copy feedback
