@@ -190,3 +190,4 @@ export const HELP_TEXT = [
   "",
   "Tab completes selected commands; plenty more reward guessing.",
 ].join("\n")// contact aliases
+// ls alias added
