@@ -16,3 +16,8 @@ The catalog of exposed commands lives in `lib/commands/catalog.ts`.
 ## Terminal
 
 The page behaves like a REPL. Type `help` to see what's available.
+
+
+| about | who I am |
+| experience | selected work |
+| contact | get in touch |
