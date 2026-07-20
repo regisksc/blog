@@ -10,6 +10,8 @@ const LARGE_CELL = 18
 const LARGE_AREA_THRESHOLD = 2_500_000
 const FRAME_INTERVAL = 1000 / 13
 const CYCLE_SPEED = 1.1
+const RIP_RADIUS = 16
+const RIP_PULL = 14
 
 function glyphFor(value: number, cycle: number): string {
   const idx = Math.floor(value * RAMP_LEN + cycle) % RAMP_LEN
@@ -32,6 +34,8 @@ export function AsciiBackground() {
     let raf = 0
     let last = 0
     let start = performance.now()
+    let pointerCol = -1
+    let pointerRow = -1
 
     const draw = (t: number) => {
       const w = window.innerWidth
@@ -45,9 +49,24 @@ export function AsciiBackground() {
       const cycle = ((t - start) / 1000) * CYCLE_SPEED
       const cols = Math.ceil(w / cellSize)
       const rows = Math.ceil(h / cellSize)
+      const ripR2 = RIP_RADIUS * RIP_RADIUS
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
-          const v = (Math.sin(x * 0.3 + cycle * 0.1) * Math.cos(y * 0.3 - cycle * 0.1) + 1) / 2
+          let sx = x
+          let sy = y
+          if (pointerCol >= 0) {
+            const dx = x - pointerCol
+            const dy = y - pointerRow
+            const d2 = dx * dx + dy * dy
+            if (d2 < ripR2 && d2 > 0.0001) {
+              const dist = Math.sqrt(d2)
+              const falloff = 1 - dist / RIP_RADIUS
+              const pull = falloff * falloff * RIP_PULL
+              sx += (dx / dist) * pull
+              sy += (dy / dist) * pull
+            }
+          }
+          const v = (Math.sin(sx * 0.3 + cycle * 0.1) * Math.cos(sy * 0.3 - cycle * 0.1) + 1) / 2
           const ch = glyphFor(v, cycle)
           if (ch !== " ") {
             ctx.fillStyle = `rgba(120,140,160,${alphaFor(v).toFixed(3)})`
@@ -65,10 +84,19 @@ export function AsciiBackground() {
       draw(now)
     }
     raf = requestAnimationFrame(loop)
+    const onPointerMove = (e: PointerEvent) => {
+      pointerCol = e.clientX / BASE_CELL
+      pointerRow = e.clientY / BASE_CELL
+    }
+    const onPointerLeave = () => { pointerCol = -1; pointerRow = -1 }
+    window.addEventListener("pointermove", onPointerMove)
+    document.addEventListener("pointerleave", onPointerLeave)
     const onResize = () => { start = performance.now(); last = 0 }
     window.addEventListener("resize", onResize)
     return () => {
       cancelAnimationFrame(raf)
+      window.removeEventListener("pointermove", onPointerMove)
+      document.removeEventListener("pointerleave", onPointerLeave)
       window.removeEventListener("resize", onResize)
     }
   }, [reducedMotion])
