@@ -5,11 +5,16 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
 const COL_WIDTH = 18
 const ROW_HEIGHT = 18
+const SPEED_MIN = 1.4
+const SPEED_MAX = 3.6
+const FRAME_INTERVAL = 1000 / 60
 
 interface Drop {
   id: number
   x: number
   y: number
+  speed: number
+  glyphs: string[]
 }
 
 function buildInitialDrops(canvas: HTMLCanvasElement): Drop[] {
@@ -18,6 +23,8 @@ function buildInitialDrops(canvas: HTMLCanvasElement): Drop[] {
     id: i,
     x: i * COL_WIDTH,
     y: -Math.random() * canvas.height,
+    speed: SPEED_MIN + Math.random() * (SPEED_MAX - SPEED_MIN),
+    glyphs: [],
   }))
 }
 
@@ -33,7 +40,20 @@ export function MatrixRain() {
     canvas.height = window.innerHeight
     setDrops(buildInitialDrops(canvas))
     if (reducedMotion) return
-    return () => {}
+    let raf = 0
+    let last = performance.now()
+    const tick = (now: number) => {
+      const dt = now - last
+      if (dt < FRAME_INTERVAL) {
+        raf = requestAnimationFrame(tick)
+        return
+      }
+      last = now
+      setDrops((prev) => prev.map((d) => ({ ...d, y: d.y + d.speed * (dt / 16) })))
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
   }, [reducedMotion])
 
   return (
