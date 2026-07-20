@@ -4,8 +4,10 @@ import { useEffect, useRef } from "react"
 
 const GLYPH_RAMP = " .·:-=+*≈▒"
 const RAMP_LEN = GLYPH_RAMP.length
-const CELL = 14
-const FRAME_INTERVAL = 1000 / 13 // ~13fps
+const BASE_CELL = 14
+const LARGE_CELL = 18
+const LARGE_AREA_THRESHOLD = 2_500_000
+const FRAME_INTERVAL = 1000 / 13
 const CYCLE_SPEED = 1.1
 
 function glyphFor(value: number, cycle: number): string {
@@ -28,20 +30,21 @@ export function AsciiBackground() {
     const draw = (t: number) => {
       const w = window.innerWidth
       const h = window.innerHeight
+      const cellSize = w * h > LARGE_AREA_THRESHOLD ? LARGE_CELL : BASE_CELL
       canvas.width = w
       canvas.height = h
-      ctx.font = `${CELL}px var(--font-mono, monospace)`
+      ctx.font = `${cellSize}px var(--font-mono, monospace)`
       ctx.textBaseline = "top"
       ctx.clearRect(0, 0, w, h)
       const cycle = ((t - start) / 1000) * CYCLE_SPEED
       ctx.fillStyle = "rgba(120,140,160,0.18)"
-      const cols = Math.ceil(w / CELL)
-      const rows = Math.ceil(h / CELL)
+      const cols = Math.ceil(w / cellSize)
+      const rows = Math.ceil(h / cellSize)
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
           const v = (Math.sin(x * 0.3 + cycle * 0.1) * Math.cos(y * 0.3 - cycle * 0.1) + 1) / 2
           const ch = glyphFor(v, cycle)
-          if (ch !== " ") ctx.fillText(ch, x * CELL, y * CELL)
+          if (ch !== " ") ctx.fillText(ch, x * cellSize, y * cellSize)
         }
       }
     }
