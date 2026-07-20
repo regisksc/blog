@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
 const GLYPH_RAMP = " .·:-=+*≈▒"
 const RAMP_LEN = GLYPH_RAMP.length
@@ -17,6 +18,7 @@ function glyphFor(value: number, cycle: number): string {
 
 export function AsciiBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const reducedMotion = useReducedMotion()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -49,6 +51,7 @@ export function AsciiBackground() {
       }
     }
 
+    if (reducedMotion) { draw(0); return }
     const loop = (now: number) => {
       raf = requestAnimationFrame(loop)
       if (now - last < FRAME_INTERVAL) return
@@ -62,7 +65,7 @@ export function AsciiBackground() {
       cancelAnimationFrame(raf)
       window.removeEventListener("resize", onResize)
     }
-  }, [])
+  }, [reducedMotion])
 
   return <canvas ref={canvasRef} aria-hidden="true" className="fixed inset-0 -z-10 pointer-events-none" />
 }
