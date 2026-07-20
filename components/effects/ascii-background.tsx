@@ -10,6 +10,7 @@ const LARGE_CELL = 18
 const LARGE_AREA_THRESHOLD = 2_500_000
 const FRAME_INTERVAL = 1000 / 13
 const CYCLE_SPEED = 1.1
+const CULL_THRESHOLD = 0.06 // skip cells below this value (perf)
 const RIP_RADIUS = 16
 const RIP_PULL = 14
 
@@ -68,6 +69,7 @@ export function AsciiBackground() {
           }
           const v = (Math.sin(sx * 0.3 + cycle * 0.1) * Math.cos(sy * 0.3 - cycle * 0.1) + 1) / 2
           const ch = glyphFor(v, cycle)
+          if (v < CULL_THRESHOLD) continue
           if (ch !== " ") {
             ctx.fillStyle = `rgba(120,140,160,${alphaFor(v).toFixed(3)})`
             ctx.fillText(ch, x * cellSize, y * cellSize)
