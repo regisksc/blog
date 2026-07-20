@@ -56,7 +56,12 @@ export function AsciiBackground() {
       draw(now)
     }
     raf = requestAnimationFrame(loop)
-    return () => cancelAnimationFrame(raf)
+    const onResize = () => { start = performance.now(); last = 0 }
+    window.addEventListener("resize", onResize)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener("resize", onResize)
+    }
   }, [])
 
   return <canvas ref={canvasRef} aria-hidden="true" className="fixed inset-0 -z-10 pointer-events-none" />
