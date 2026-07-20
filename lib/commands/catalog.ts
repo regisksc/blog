@@ -191,3 +191,12 @@ export const HELP_TEXT = [
   "Tab completes selected commands; plenty more reward guessing.",
 ].join("\n")// contact aliases
 // ls alias added
+
+
+// Matrix easter-egg command descriptor — surfaces trigger through terminal
+// and dispatches via the run-command provider.
+export const matrixCommand = {
+  name: "matrix",
+  description: "Toggle the matrix-rain easter egg.",
+  category: "easter-egg" as const,
+} as const
