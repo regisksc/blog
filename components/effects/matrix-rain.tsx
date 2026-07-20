@@ -177,7 +177,7 @@ export function MatrixRain() {
       {drops.map((drop) => (
         <div
           key={drop.id}
-          className="absolute top-0 font-mono text-sm text-primary leading-none"
+          className="absolute top-0 font-mono text-sm text-primary leading-none drop-opacity"
           style={{
             left: drop.x,
             transform: `translate3d(0, ${drop.y}px, 0)`,
