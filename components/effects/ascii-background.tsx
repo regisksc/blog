@@ -16,6 +16,10 @@ function glyphFor(value: number, cycle: number): string {
   return GLYPH_RAMP[idx < 0 ? idx + RAMP_LEN : idx]
 }
 
+function alphaFor(value: number): number {
+  return 0.10 + value * 0.22
+}
+
 export function AsciiBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const reducedMotion = useReducedMotion()
@@ -39,14 +43,16 @@ export function AsciiBackground() {
       ctx.textBaseline = "top"
       ctx.clearRect(0, 0, w, h)
       const cycle = ((t - start) / 1000) * CYCLE_SPEED
-      ctx.fillStyle = "rgba(120,140,160,0.18)"
       const cols = Math.ceil(w / cellSize)
       const rows = Math.ceil(h / cellSize)
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
           const v = (Math.sin(x * 0.3 + cycle * 0.1) * Math.cos(y * 0.3 - cycle * 0.1) + 1) / 2
           const ch = glyphFor(v, cycle)
-          if (ch !== " ") ctx.fillText(ch, x * cellSize, y * cellSize)
+          if (ch !== " ") {
+            ctx.fillStyle = `rgba(120,140,160,${alphaFor(v).toFixed(3)})`
+            ctx.fillText(ch, x * cellSize, y * cellSize)
+          }
         }
       }
     }
