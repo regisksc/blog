@@ -81,6 +81,7 @@ export function AsciiBackground() {
     if (reducedMotion) { draw(0); return }
     const loop = (now: number) => {
       raf = requestAnimationFrame(loop)
+      if (paused) return
       if (now - last < FRAME_INTERVAL) return
       last = now
       draw(now)
@@ -90,7 +91,9 @@ export function AsciiBackground() {
       pointerCol = e.clientX / BASE_CELL
       pointerRow = e.clientY / BASE_CELL
     }
-    const onPointerLeave = () => { pointerCol = -1; pointerRow = -1 }
+    let paused = false
+    const onVisibility = () => { paused = document.hidden }
+    document.addEventListener("visibilitychange", onVisibility)
     window.addEventListener("pointermove", onPointerMove)
     document.addEventListener("pointerleave", onPointerLeave)
     const onResize = () => { start = performance.now(); last = 0 }
@@ -100,6 +103,7 @@ export function AsciiBackground() {
       window.removeEventListener("pointermove", onPointerMove)
       document.removeEventListener("pointerleave", onPointerLeave)
       window.removeEventListener("resize", onResize)
+      document.removeEventListener("visibilitychange", onVisibility)
     }
   }, [reducedMotion])
 
