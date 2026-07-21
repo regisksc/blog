@@ -200,3 +200,10 @@ export const matrixCommand = {
   description: "Toggle the matrix-rain easter egg.",
   category: "easter-egg" as const,
 } as const
+
+
+export const glitchCommand = {
+  name: "glitch",
+  description: "Trigger the glitch-banner easter egg.",
+  category: "easter-egg" as const,
+} as const
