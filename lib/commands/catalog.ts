@@ -214,3 +214,10 @@ export const dvdCommand = {
   description: "Trigger the DVD-overlay easter egg.",
   category: "easter-egg" as const,
 } as const
+
+
+export const shatterCommand = {
+  name: "shatter",
+  description: "Trigger the fragment-explosion easter egg.",
+  category: "easter-egg" as const,
+} as const
