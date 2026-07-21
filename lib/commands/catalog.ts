@@ -221,3 +221,11 @@ export const shatterCommand = {
   description: "Trigger the fragment-explosion easter egg.",
   category: "easter-egg" as const,
 } as const
+
+
+export const crashCommand = {
+  name: "crash",
+  description: "Alias of shatter — same fragment-explosion effect.",
+  category: "easter-egg" as const,
+  aliasOf: "shatter",
+} as const
