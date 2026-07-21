@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { useReducedMotion } from "@/hooks/use-reduced-motion"
+import { resolveCssVar } from "@/lib/canvas-utils"
 
 const GLYPH_RAMP = " .·:-=+*≈▒"
 const RAMP_LEN = GLYPH_RAMP.length
@@ -71,7 +72,8 @@ export function AsciiBackground() {
           const ch = glyphFor(v, cycle)
           if (v < CULL_THRESHOLD) continue
           if (ch !== " ") {
-            ctx.fillStyle = `rgba(120,140,160,${alphaFor(v).toFixed(3)})`
+            const [cr, cg, cb] = resolveCssVar("--primary")
+            ctx.fillStyle = `rgba(${cr},${cg},${cb},${alphaFor(v).toFixed(3)})`
             ctx.fillText(ch, x * cellSize, y * cellSize)
           }
         }
