@@ -113,7 +113,9 @@ export function MatrixRain() {
 
     if (prefersReducedMotion()) return
 
+    let paused = false
     const onVisibility = () => {
+      paused = document.hidden
       if (document.hidden) setDrops([])
     }
     document.addEventListener("visibilitychange", onVisibility)
@@ -128,6 +130,7 @@ export function MatrixRain() {
     const frameInterval = 1000 / 60
 
     const tick = (now: number) => {
+      if (paused) { raf = requestAnimationFrame(tick); return }
       const dt = now - last
       if (dt < frameInterval) {
         raf = requestAnimationFrame(tick)
