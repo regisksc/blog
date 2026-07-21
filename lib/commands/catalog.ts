@@ -207,3 +207,10 @@ export const glitchCommand = {
   description: "Trigger the glitch-banner easter egg.",
   category: "easter-egg" as const,
 } as const
+
+
+export const dvdCommand = {
+  name: "dvd",
+  description: "Trigger the DVD-overlay easter egg.",
+  category: "easter-egg" as const,
+} as const
