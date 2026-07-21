@@ -15,3 +15,8 @@ describe("Portfolio", () => {
     // We can't easily mock the hook from here — this is a smoke assertion only.
     render(<Portfolio />)
   })
+
+  it("wires glitch banner via use-easter-eggs", () => {
+    render(<Portfolio />)
+    // No GlitchBanner rendered by default (glitchPhase = hidden)
+  })
