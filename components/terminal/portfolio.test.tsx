@@ -20,3 +20,8 @@ describe("Portfolio", () => {
     render(<Portfolio />)
     // No GlitchBanner rendered by default (glitchPhase = hidden)
   })
+
+  it("wires dvd overlay via use-easter-eggs", () => {
+    render(<Portfolio />)
+    // No DvdOverlay rendered by default (dvdPhase = hidden)
+  })
