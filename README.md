@@ -35,3 +35,8 @@ The terminal accepts a few hidden commands that trigger page-level visual effect
 - `glitch` — RGB-shift banner overlay.
 - `dvd` — bouncing DVD overlay.
 - `shatter` / `crash` — fragment-explosion across the page.
+
+
+## Lab
+
+The terminal accepts `lab` to open the lab canvas experiments — gravity well and 3D black hole.
