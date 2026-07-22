@@ -6,6 +6,7 @@ const W = 80
 const ACCRETION_RADIUS = 18
 const RAYMARCH_STEPS = 24
 const DISK_THICKNESS = 8
+const BLACK_HOLE_PALETTE = " .:-=+*#%@
 const H = 30
 
 // Scaffold — raymarch loop + accretion disk + doppler + camera drag land in #208-#212.
@@ -40,7 +41,7 @@ export function BlackHole() {
           if (r > ACCRETION_RADIUS && r < ACCRETION_RADIUS + DISK_THICKNESS) {
             const doppler = Math.cos(Math.atan2(dy, dx)) * 0.5 + 0.5
             ctx.fillStyle = `hsl(${30 + doppler * 180}, 80%, ${50 - r}%)`
-            ctx.fillText(".", x, y)
+            ctx.fillText(BLACK_HOLE_PALETTE[Math.floor(doppler * (BLACK_HOLE_PALETTE.length - 1))], x, y)
           }
         }
       }
