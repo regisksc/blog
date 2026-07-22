@@ -45,6 +45,7 @@ export function GravityWell() {
     const attractor = { x: DEFAULT_ATTRACTOR.x, y: DEFAULT_ATTRACTOR.y }
     const rafIdRef = { current: 0 } as { current: number }
     const onMove = (e: PointerEvent) => { attractor.x = e.clientX / CELL_W; attractor.y = e.clientY / CELL_H }
+    const onLeave = () => { attractor.x = DEFAULT_ATTRACTOR.x; attractor.y = DEFAULT_ATTRACTOR.y }
     const onClick = (e: MouseEvent) => {
       const at = { x: e.clientX / CELL_W, y: e.clientY / CELL_H }
       for (let i = 0; i < BURST_COUNT; i++) particlesRef.current.push(spawnParticle(at))
@@ -69,6 +70,7 @@ export function GravityWell() {
       rafIdRef.current = requestAnimationFrame(step)
     }
     canvas.addEventListener("pointermove", onMove)
+    canvas.addEventListener("pointerleave", onLeave)
     canvas.addEventListener("click", onClick)
     const onContextMenu = (e: MouseEvent) => { e.preventDefault(); particlesRef.current = Array.from({ length: PARTICLE_COUNT }, () => spawnParticle()) }
     canvas.addEventListener("contextmenu", onContextMenu)
@@ -76,6 +78,7 @@ export function GravityWell() {
     return () => {
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
       canvas.removeEventListener("pointermove", onMove)
+      canvas.removeEventListener("pointerleave", onLeave)
       canvas.removeEventListener("click", onClick)
       canvas.removeEventListener("contextmenu", onContextMenu)
     }
