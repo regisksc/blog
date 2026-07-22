@@ -229,3 +229,10 @@ export const crashCommand = {
   category: "easter-egg" as const,
   aliasOf: "shatter",
 } as const
+
+
+export const labCommand = {
+  name: "lab",
+  description: "Open the lab canvas experiments section.",
+  category: "section" as const,
+} as const
