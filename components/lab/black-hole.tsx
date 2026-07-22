@@ -11,6 +11,7 @@ const H = 30
 export function BlackHole() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const cameraThetaRef = useRef(0)
+  const zoomRef = useRef(1)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -19,6 +20,8 @@ export function BlackHole() {
     if (!ctx) return
     let rafId = 0
     const onDrag = (e: PointerEvent) => { cameraThetaRef.current = (e.clientX / canvas.width) * Math.PI * 2 }
+    const onWheel = (e: WheelEvent) => { e.preventDefault(); zoomRef.current = Math.max(0.5, Math.min(3, zoomRef.current - e.deltaY * 0.001)) }
+    canvas.addEventListener("wheel", onWheel)
     canvas.addEventListener("pointermove", onDrag)
     const step = () => {
       ctx.fillStyle = "black"
@@ -41,6 +44,7 @@ export function BlackHole() {
     }
     rafId = requestAnimationFrame(step)
     canvas.removeEventListener("pointermove", onDrag)
+    canvas.removeEventListener("wheel", onWheel)
     return () => { if (rafId) cancelAnimationFrame(rafId) }
   }, [])
 
