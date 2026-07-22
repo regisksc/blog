@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 
 const W = 80
 const ACCRETION_RADIUS = 18
+const RAYMARCH_STEPS = 24
 const DISK_THICKNESS = 8
 const H = 30
 
@@ -28,7 +29,10 @@ export function BlackHole() {
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       const cx = canvas.width / 2
       const cy = canvas.height / 2
+      let steps = 0
       for (let y = 0; y < canvas.height; y += 8) {
+        steps += 1
+        if (steps > RAYMARCH_STEPS) break
         for (let x = 0; x < canvas.width; x += 6) {
           const dx = (x - cx) / 6
           const dy = (y - cy) / 8
