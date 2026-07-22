@@ -12,7 +12,16 @@ export function BlackHole() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    return () => {}
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+    let rafId = 0
+    const step = () => {
+      ctx.fillStyle = "black"
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      rafId = requestAnimationFrame(step)
+    }
+    rafId = requestAnimationFrame(step)
+    return () => { if (rafId) cancelAnimationFrame(rafId) }
   }, [])
 
   return (
