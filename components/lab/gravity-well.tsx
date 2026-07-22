@@ -43,13 +43,13 @@ export function GravityWell() {
     const fgColor = `rgb(${fr}, ${fg}, ${fb})`
     particlesRef.current = Array.from({ length: PARTICLE_COUNT }, spawnParticle)
     const attractor = { x: DEFAULT_ATTRACTOR.x, y: DEFAULT_ATTRACTOR.y }
+    const rafIdRef = { current: 0 } as { current: number }
     const onMove = (e: PointerEvent) => { attractor.x = e.clientX / CELL_W; attractor.y = e.clientY / CELL_H }
     const onClick = (e: MouseEvent) => {
       const at = { x: e.clientX / CELL_W, y: e.clientY / CELL_H }
       for (let i = 0; i < BURST_COUNT; i++) particlesRef.current.push(spawnParticle(at))
       while (particlesRef.current.length > PARTICLE_COUNT + BURST_COUNT * 2) particlesRef.current.shift()
     }
-    let rafId = 0
     const step = () => {
       for (const p of particlesRef.current) {
         const dx = attractor.x - p.x
@@ -66,7 +66,7 @@ export function GravityWell() {
       }
       const ctx = canvas.getContext("2d")
       if (ctx) ctx.fillStyle = fgColor
-      rafId = requestAnimationFrame(step)
+      rafIdRef.current = requestAnimationFrame(step)
     }
     canvas.addEventListener("pointermove", onMove)
     canvas.addEventListener("click", onClick)
@@ -74,7 +74,7 @@ export function GravityWell() {
     canvas.addEventListener("contextmenu", onContextMenu)
     rafId = requestAnimationFrame(step)
     return () => {
-      if (rafId) cancelAnimationFrame(rafId)
+      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
       canvas.removeEventListener("pointermove", onMove)
       canvas.removeEventListener("click", onClick)
       canvas.removeEventListener("contextmenu", onContextMenu)
