@@ -28,3 +28,10 @@ The page behaves like a REPL. Type `help` to see what's available.
 The terminal accepts a few hidden commands that trigger page-level visual effects:
 
 - `matrix` — toggle the matrix-rain easter egg (CJK + Greek + Cyrillic glyph rain).
+
+
+## Effects
+
+- `glitch` — RGB-shift banner overlay.
+- `dvd` — bouncing DVD overlay.
+- `shatter` / `crash` — fragment-explosion across the page.
