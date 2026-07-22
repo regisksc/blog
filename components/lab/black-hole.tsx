@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react"
 
 const W = 80
+const ACCRETION_RADIUS = 18
+const DISK_THICKNESS = 8
 const H = 30
 
 // Scaffold — raymarch loop + accretion disk + doppler + camera drag land in #208-#212.
@@ -18,6 +20,19 @@ export function BlackHole() {
     const step = () => {
       ctx.fillStyle = "black"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
+      const cx = canvas.width / 2
+      const cy = canvas.height / 2
+      for (let y = 0; y < canvas.height; y += 8) {
+        for (let x = 0; x < canvas.width; x += 6) {
+          const dx = (x - cx) / 6
+          const dy = (y - cy) / 8
+          const r = Math.sqrt(dx * dx + dy * dy)
+          if (r > ACCRETION_RADIUS && r < ACCRETION_RADIUS + DISK_THICKNESS) {
+            ctx.fillStyle = `hsl(${30 + r * 4}, 80%, ${50 - r}%)`
+            ctx.fillText(".", x, y)
+          }
+        }
+      }
       rafId = requestAnimationFrame(step)
     }
     rafId = requestAnimationFrame(step)
