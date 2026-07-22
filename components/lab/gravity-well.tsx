@@ -18,6 +18,7 @@ const SOFTENING = 6
 const GRAVITY = 6
 const SNAP_KNEE = SOFTENING * 1.5
 const MAX_ACCEL = 0.1
+const BURST_COUNT = 24
 const DEFAULT_ATTRACTOR = { x: COLS / 2, y: ROWS / 2 }
 const DEFAULT_ATTRACTOR = { x: COLS / 2, y: ROWS / 2 }
 
@@ -40,6 +41,10 @@ export function GravityWell() {
     particlesRef.current = Array.from({ length: PARTICLE_COUNT }, spawnParticle)
     const attractor = { x: DEFAULT_ATTRACTOR.x, y: DEFAULT_ATTRACTOR.y }
     const onMove = (e: PointerEvent) => { attractor.x = e.clientX / CELL_W; attractor.y = e.clientY / CELL_H }
+    const onClick = (e: MouseEvent) => {
+      const at = { x: e.clientX / CELL_W, y: e.clientY / CELL_H }
+      for (let i = 0; i < BURST_COUNT; i++) particlesRef.current.push(spawnParticle(at))
+    }
     let rafId = 0
     const step = () => {
       for (const p of particlesRef.current) {
@@ -58,10 +63,12 @@ export function GravityWell() {
       rafId = requestAnimationFrame(step)
     }
     canvas.addEventListener("pointermove", onMove)
+    canvas.addEventListener("click", onClick)
     rafId = requestAnimationFrame(step)
     return () => {
       if (rafId) cancelAnimationFrame(rafId)
       canvas.removeEventListener("pointermove", onMove)
+      canvas.removeEventListener("click", onClick)
     }
   }, [])
 
