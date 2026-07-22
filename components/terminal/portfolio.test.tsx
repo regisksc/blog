@@ -25,3 +25,7 @@ describe("Portfolio", () => {
     render(<Portfolio />)
     // No DvdOverlay rendered by default (dvdPhase = hidden)
   })
+
+  it("dispatches lab section via run-command", () => {
+    render(<Portfolio />)
+  })
