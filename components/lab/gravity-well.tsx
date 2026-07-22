@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { resolveCssVar } from "@/lib/canvas-utils"
 
 interface Particle {
   x: number
@@ -38,6 +39,8 @@ export function GravityWell() {
   const particlesRef = useRef<Particle[]>([])
 
   useEffect(() => {
+    const [fr, fg, fb] = resolveCssVar("--primary")
+    const fgColor = `rgb(${fr}, ${fg}, ${fb})`
     particlesRef.current = Array.from({ length: PARTICLE_COUNT }, spawnParticle)
     const attractor = { x: DEFAULT_ATTRACTOR.x, y: DEFAULT_ATTRACTOR.y }
     const onMove = (e: PointerEvent) => { attractor.x = e.clientX / CELL_W; attractor.y = e.clientY / CELL_H }
@@ -61,6 +64,8 @@ export function GravityWell() {
         p.x += p.vx
         p.y += p.vy
       }
+      const ctx = canvas.getContext("2d")
+      if (ctx) ctx.fillStyle = fgColor
       rafId = requestAnimationFrame(step)
     }
     canvas.addEventListener("pointermove", onMove)
