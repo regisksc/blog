@@ -10,6 +10,7 @@ const H = 30
 // Scaffold — raymarch loop + accretion disk + doppler + camera drag land in #208-#212.
 export function BlackHole() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const cameraThetaRef = useRef(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -17,6 +18,8 @@ export function BlackHole() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
     let rafId = 0
+    const onDrag = (e: PointerEvent) => { cameraThetaRef.current = (e.clientX / canvas.width) * Math.PI * 2 }
+    canvas.addEventListener("pointermove", onDrag)
     const step = () => {
       ctx.fillStyle = "black"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -37,6 +40,7 @@ export function BlackHole() {
       rafId = requestAnimationFrame(step)
     }
     rafId = requestAnimationFrame(step)
+    canvas.removeEventListener("pointermove", onDrag)
     return () => { if (rafId) cancelAnimationFrame(rafId) }
   }, [])
 
