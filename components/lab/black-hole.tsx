@@ -28,7 +28,8 @@ export function BlackHole() {
           const dy = (y - cy) / 8
           const r = Math.sqrt(dx * dx + dy * dy)
           if (r > ACCRETION_RADIUS && r < ACCRETION_RADIUS + DISK_THICKNESS) {
-            ctx.fillStyle = `hsl(${30 + r * 4}, 80%, ${50 - r}%)`
+            const doppler = Math.cos(Math.atan2(dy, dx)) * 0.5 + 0.5
+            ctx.fillStyle = `hsl(${30 + doppler * 180}, 80%, ${50 - r}%)`
             ctx.fillText(".", x, y)
           }
         }
