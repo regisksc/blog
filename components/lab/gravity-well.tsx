@@ -38,7 +38,8 @@ export function GravityWell() {
 
   useEffect(() => {
     particlesRef.current = Array.from({ length: PARTICLE_COUNT }, spawnParticle)
-    const attractor = DEFAULT_ATTRACTOR
+    const attractor = { x: DEFAULT_ATTRACTOR.x, y: DEFAULT_ATTRACTOR.y }
+    const onMove = (e: PointerEvent) => { attractor.x = e.clientX / CELL_W; attractor.y = e.clientY / CELL_H }
     let rafId = 0
     const step = () => {
       for (const p of particlesRef.current) {
@@ -56,9 +57,11 @@ export function GravityWell() {
       }
       rafId = requestAnimationFrame(step)
     }
+    canvas.addEventListener("pointermove", onMove)
     rafId = requestAnimationFrame(step)
     return () => {
       if (rafId) cancelAnimationFrame(rafId)
+      canvas.removeEventListener("pointermove", onMove)
     }
   }, [])
 
