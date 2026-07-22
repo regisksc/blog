@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useReducedMotion } from "@/hooks/use-reduced-motion"
 
 const W = 80
 const ACCRETION_RADIUS = 18
@@ -13,6 +14,7 @@ const H = 30
 export function BlackHole() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const cameraThetaRef = useRef(0)
+  const reducedMotion = useReducedMotion()
   const zoomRef = useRef(1)
 
   useEffect(() => {
@@ -25,6 +27,11 @@ export function BlackHole() {
     const onWheel = (e: WheelEvent) => { e.preventDefault(); zoomRef.current = Math.max(0.5, Math.min(3, zoomRef.current - e.deltaY * 0.001)) }
     canvas.addEventListener("wheel", onWheel)
     canvas.addEventListener("pointermove", onDrag)
+    if (reducedMotion) {
+      ctx.fillStyle = "black"
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      return
+    }
     const step = () => {
       ctx.fillStyle = "black"
       ctx.fillRect(0, 0, canvas.width, canvas.height)
