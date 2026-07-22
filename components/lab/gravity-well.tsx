@@ -64,11 +64,14 @@ export function GravityWell() {
     }
     canvas.addEventListener("pointermove", onMove)
     canvas.addEventListener("click", onClick)
+    const onContextMenu = (e: MouseEvent) => { e.preventDefault(); particlesRef.current = Array.from({ length: PARTICLE_COUNT }, () => spawnParticle()) }
+    canvas.addEventListener("contextmenu", onContextMenu)
     rafId = requestAnimationFrame(step)
     return () => {
       if (rafId) cancelAnimationFrame(rafId)
       canvas.removeEventListener("pointermove", onMove)
       canvas.removeEventListener("click", onClick)
+      canvas.removeEventListener("contextmenu", onContextMenu)
     }
   }, [])
 
