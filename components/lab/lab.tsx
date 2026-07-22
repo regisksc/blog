@@ -27,7 +27,11 @@ export function LabSection() {
           </button>
         ))}
       </div>
-      <div data-active-experiment={active} className="rounded border border-border p-4 min-h-[200px]" />
+      <div data-active-experiment={active} className="rounded border border-border p-4 min-h-[200px]">
+        <p className="experiment-tagline text-xs text-muted-foreground mb-3">
+          {EXPERIMENTS.find((e) => e.id === active)?.label}
+        </p>
+      </div>
     </div>
   )
 }
