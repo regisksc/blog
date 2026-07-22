@@ -16,6 +16,8 @@ const ROWS = 24
 const PARTICLE_COUNT = 110
 const SOFTENING = 6
 const GRAVITY = 6
+const SNAP_KNEE = SOFTENING * 1.5
+const MAX_ACCEL = 0.1
 const DEFAULT_ATTRACTOR = { x: COLS / 2, y: ROWS / 2 }
 const DEFAULT_ATTRACTOR = { x: COLS / 2, y: ROWS / 2 }
 
@@ -45,7 +47,9 @@ export function GravityWell() {
         const dist2 = dx * dx + dy * dy + SOFTENING * SOFTENING
         const dist = Math.sqrt(dist2)
         const pull = GRAVITY / dist2
-        p.vx += (dx / dist) * pull
+        const closeBoost = SNAP_KNEE / (dist + 0.5)
+        const accel = Math.min(MAX_ACCEL, pull * closeBoost)
+        p.vx += (dx / dist) * accel
         p.vy += (dy / dist) * pull
         p.x += p.vx
         p.y += p.vy
