@@ -44,6 +44,7 @@ export function GravityWell() {
     const onClick = (e: MouseEvent) => {
       const at = { x: e.clientX / CELL_W, y: e.clientY / CELL_H }
       for (let i = 0; i < BURST_COUNT; i++) particlesRef.current.push(spawnParticle(at))
+      while (particlesRef.current.length > PARTICLE_COUNT + BURST_COUNT * 2) particlesRef.current.shift()
     }
     let rafId = 0
     const step = () => {
