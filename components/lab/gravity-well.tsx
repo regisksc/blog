@@ -14,6 +14,9 @@ const CELL_H = 7
 const COLS = 96
 const ROWS = 24
 const PARTICLE_COUNT = 110
+const SOFTENING = 6
+const GRAVITY = 6
+const DEFAULT_ATTRACTOR = { x: COLS / 2, y: ROWS / 2 }
 const DEFAULT_ATTRACTOR = { x: COLS / 2, y: ROWS / 2 }
 
 function spawnParticle(at: { x: number; y: number } = DEFAULT_ATTRACTOR): Particle {
@@ -33,6 +36,26 @@ export function GravityWell() {
 
   useEffect(() => {
     particlesRef.current = Array.from({ length: PARTICLE_COUNT }, spawnParticle)
+    const attractor = DEFAULT_ATTRACTOR
+    let rafId = 0
+    const step = () => {
+      for (const p of particlesRef.current) {
+        const dx = attractor.x - p.x
+        const dy = attractor.y - p.y
+        const dist2 = dx * dx + dy * dy + SOFTENING * SOFTENING
+        const dist = Math.sqrt(dist2)
+        const pull = GRAVITY / dist2
+        p.vx += (dx / dist) * pull
+        p.vy += (dy / dist) * pull
+        p.x += p.vx
+        p.y += p.vy
+      }
+      rafId = requestAnimationFrame(step)
+    }
+    rafId = requestAnimationFrame(step)
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (
