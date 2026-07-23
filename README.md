@@ -40,3 +40,8 @@ The terminal accepts a few hidden commands that trigger page-level visual effect
 ## Lab
 
 The terminal accepts `lab` to open the lab canvas experiments — gravity well and 3D black hole.
+
+
+## Themes
+
+The terminal accepts `theme` to cycle the accent palette (matrix / green / amber / blue).
