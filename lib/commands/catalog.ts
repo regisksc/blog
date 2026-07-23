@@ -258,3 +258,7 @@ export const hireMeCommand = {
   description: "Trigger the contact form prefill plus dvd easter-egg.",
   category: "easter-egg" as const,
 } as const
+
+
+// Easter eggs final pass — verified all 6 wired.
+export const EASTER_EGGS_VERSION = 6 as const
