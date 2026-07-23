@@ -6,6 +6,7 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion"
 const W = 80
 const ACCRETION_RADIUS = 18
 const RAYMARCH_STEPS = 24
+const EARLY_EXIT_DIST = 80
 const DISK_THICKNESS = 8
 const BLACK_HOLE_PALETTE = " .:-=+*#%@
 const H = 30
@@ -45,6 +46,7 @@ export function BlackHole() {
           const dx = (x - cx) / 6
           const dy = (y - cy) / 8
           const r = Math.sqrt(dx * dx + dy * dy)
+          if (r > EARLY_EXIT_DIST) continue
           if (r > ACCRETION_RADIUS && r < ACCRETION_RADIUS + DISK_THICKNESS) {
             const doppler = Math.cos(Math.atan2(dy, dx)) * 0.5 + 0.5
             ctx.fillStyle = `hsl(${30 + doppler * 180}, 80%, ${50 - r}%)`
