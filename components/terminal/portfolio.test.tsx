@@ -29,3 +29,7 @@ describe("Portfolio", () => {
   it("dispatches lab section via run-command", () => {
     render(<Portfolio />)
   })
+
+  it("dispatches resume section via run-command", () => {
+    render(<Portfolio />)
+  })
