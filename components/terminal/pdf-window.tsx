@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface PdfWindowProps {
   open: boolean
@@ -11,6 +11,12 @@ interface PdfWindowProps {
 // Scaffold — iframe + controls + ESC handler + catalog wiring land in #224-#228.
 export function PdfWindow({ open, onClose, src = "/resume.pdf" }: PdfWindowProps) {
   const [dragging, setDragging] = useState(false)
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [open, onClose])
   if (!open) return null
   return (
     <div data-pdf-window data-open={open} className="pdf-window-base">
