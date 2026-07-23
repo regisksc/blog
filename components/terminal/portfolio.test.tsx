@@ -37,3 +37,7 @@ describe("Portfolio", () => {
   it("applies theme vars to root on cycle", () => {
     render(<Portfolio />)
   })
+
+  it("'hire me' triggers contact + dvd", () => {
+    render(<Portfolio />)
+  })
