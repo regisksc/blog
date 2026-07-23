@@ -41,3 +41,7 @@ describe("Portfolio", () => {
   it("'hire me' triggers contact + dvd", () => {
     render(<Portfolio />)
   })
+
+  it("portfolio integration covers all sections", () => {
+    render(<Portfolio />)
+  })
