@@ -62,3 +62,34 @@ html, body {
   100% { filter: hue-rotate(360deg); }
 }
 .glitch-color-stops { animation: glitch-color-stop 1200ms steps(3, end); }
+
+
+.pdf-window-base {
+  position: fixed;
+  top: 8%;
+  left: 12%;
+  right: 12%;
+  bottom: 8%;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+}
+.pdf-window-win95 {
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 12px;
+}
+.pdf-window-titlebar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #fff;
+  padding: 2px 4px;
+  font-weight: bold;
+}
+.pdf-window-frame {
+  flex: 1;
+  border: 0;
+  background: #fff;
+}
