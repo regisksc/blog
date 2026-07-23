@@ -244,3 +244,10 @@ export const resumeCommand = {
   category: "section" as const,
   aliasOf: "pdf",
 } as const
+
+
+export const themeCommand = {
+  name: "theme",
+  description: "Cycle the theme palette (matrix / green / amber / blue).",
+  category: "system" as const,
+} as const
