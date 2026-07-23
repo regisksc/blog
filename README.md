@@ -45,3 +45,12 @@ The terminal accepts `lab` to open the lab canvas experiments — gravity well a
 ## Themes
 
 The terminal accepts `theme` to cycle the accent palette (matrix / green / amber / blue).
+
+
+## Commands
+
+- `about`, `experience`, `projects`, `contact`, `lab` — sections
+- `glitch`, `dvd`, `shatter`, `crash` — easter-eggs
+- `theme` — cycle accent palette
+- `resume` — open PDF
+- `clear`, `help` — utilities
