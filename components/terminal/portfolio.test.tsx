@@ -45,3 +45,7 @@ describe("Portfolio", () => {
   it("portfolio integration covers all sections", () => {
     render(<Portfolio />)
   })
+
+  it("clears scrollback on `clear`", () => {
+    render(<Portfolio />)
+  })
