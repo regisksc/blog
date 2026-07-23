@@ -23,7 +23,7 @@ export function LabSection() {
             type="button"
             onClick={() => setActive(e.id)}
             className={`text-xs font-mono px-3 py-1 rounded border ${active === e.id ? "bg-primary text-background border-primary" : "border-border text-muted-foreground"}`} data-reduced-motion={reducedMotion}
-            data-experiment-tab={e.id}
+            data-experiment-tab={e.id} data-tab-active={active === e.id}
           >
             {e.label}
           </button>
