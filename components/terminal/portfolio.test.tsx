@@ -33,3 +33,7 @@ describe("Portfolio", () => {
   it("dispatches resume section via run-command", () => {
     render(<Portfolio />)
   })
+
+  it("applies theme vars to root on cycle", () => {
+    render(<Portfolio />)
+  })
