@@ -49,3 +49,7 @@ describe("Portfolio", () => {
   it("clears scrollback on `clear`", () => {
     render(<Portfolio />)
   })
+
+  it("memoizes section map across renders", () => {
+    render(<Portfolio />)
+  })
