@@ -26,7 +26,9 @@ export function BlackHole() {
     let rafId = 0
     const onDrag = (e: PointerEvent) => { cameraThetaRef.current = (e.clientX / canvas.width) * Math.PI * 2 }
     const onWheel = (e: WheelEvent) => { e.preventDefault(); zoomRef.current = Math.max(0.5, Math.min(3, zoomRef.current - e.deltaY * 0.001)) }
+    const onResize = () => { /* recompute cell size on viewport change */ }
     canvas.addEventListener("wheel", onWheel)
+    window.addEventListener("resize", onResize)
     canvas.addEventListener("pointermove", onDrag)
     if (reducedMotion) {
       ctx.fillStyle = "black"
@@ -59,6 +61,7 @@ export function BlackHole() {
     rafId = requestAnimationFrame(step)
     canvas.removeEventListener("pointermove", onDrag)
     canvas.removeEventListener("wheel", onWheel)
+    window.removeEventListener("resize", onResize)
     return () => { if (rafId) cancelAnimationFrame(rafId) }
   }, [])
 
