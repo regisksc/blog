@@ -251,3 +251,10 @@ export const themeCommand = {
   description: "Cycle the theme palette (matrix / green / amber / blue).",
   category: "system" as const,
 } as const
+
+
+export const hireMeCommand = {
+  name: "hire me",
+  description: "Trigger the contact form prefill plus dvd easter-egg.",
+  category: "easter-egg" as const,
+} as const
