@@ -236,3 +236,11 @@ export const labCommand = {
   description: "Open the lab canvas experiments section.",
   category: "section" as const,
 } as const
+
+
+export const resumeCommand = {
+  name: "resume",
+  description: "Open the PDF resume window.",
+  category: "section" as const,
+  aliasOf: "pdf",
+} as const
