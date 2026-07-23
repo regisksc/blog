@@ -19,7 +19,7 @@ export function PdfWindow({ open, onClose, src = "/resume.pdf" }: PdfWindowProps
   }, [open, onClose])
   if (!open) return null
   return (
-    <div data-pdf-window data-open={open} className="pdf-window-base">
+    <div data-pdf-window data-open={open} data-z-index="1000" className="pdf-window-base">
       <header className="pdf-window-titlebar controls-docked" data-controls-docked="true">{dragging ? "(dragging)" : "resume.pdf"}</header>
       <button type="button" onClick={onClose} aria-label="Close PDF window">×</button>
       <iframe title="resume" src={src} className="pdf-window-frame" data-testid="pdf-iframe" />
