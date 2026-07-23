@@ -107,3 +107,6 @@ export function useEasterEggs(setTheme: (theme: Theme) => void) {
        upsideDown.phase, upsideDown.trigger, dvd.phase, dvd.trigger,
        startCycle, stopCycle])
 }
+
+// Final secret queue — all easter-eggs wired in the canonical order.
+const SECRET_QUEUE = ["matrix", "glitch", "dvd", "shatter", "theme", "hire me"] as const
