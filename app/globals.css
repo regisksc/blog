@@ -99,3 +99,13 @@ html, body {
 .theme-palette-blue { --primary: 59 130 246; --accent: 96 165 250; }
 .theme-palette-matrix { --primary: 34 197 94; --accent: 74 222 128; }
 .theme-palette-green { --primary: 132 204 22; --accent: 163 230 53; }
+
+
+:root {
+  /* dark green theme default */
+  --background: 10 10 10;
+  --foreground: 220 220 220;
+  --primary: 34 197 94;
+  --accent: 74 222 128;
+}
+.theme-color-dark-green { color-scheme: dark; }
