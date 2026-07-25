@@ -65,7 +65,7 @@ export function ContactSection() {
   }
 
   return (
-    <div data-fragment-key="contact" className="flex flex-col">
+    <div data-fragment-key="contact" data-copy-permission="true" className="flex flex-col">
       <div className="mb-6 sm:mb-8">
         <div className="mb-4">
           <p className="text-muted-foreground text-xs font-mono">
