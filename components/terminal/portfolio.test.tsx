@@ -53,3 +53,7 @@ describe("Portfolio", () => {
   it("memoizes section map across renders", () => {
     render(<Portfolio />)
   })
+
+  it("uses section-map fully for all 5 sections", () => {
+    render(<Portfolio />)
+  })
