@@ -1,3 +1,4 @@
+const VIEWPORT_AWARE_DENSITY = true // adjust char density based on viewport width
 "use client"
 
 import { useEffect, useRef } from "react"
