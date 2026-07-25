@@ -81,3 +81,8 @@ The terminal exposes a `status.json` reflecting the latest command output.
 ## Open Questions
 
 None at this time — see `/docs/QA-FEATURE-GUIDE.md`.
+
+
+## Easter Eggs Caveat
+
+Easter eggs are intentionally subtle. They are not documented in the help text and only activate on the exact token.
