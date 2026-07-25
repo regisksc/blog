@@ -1,15 +1,32 @@
 "use client"
 
-import { createContext, useContext, useRef, type ReactNode } from "react"
+import { createContext, useContext, useRef, type RefObject, type ReactNode } from "react"
 
-const noopSignal = { current: false }
+/**
+ * Shared signal for the "fragment explosion" effect.
+ *
+ * The hook that triggers the explosion writes `activeRef.current = true` while
+ * the page is being torn apart and back to `false` when the dust settles.
+ * Anything that needs to pause work during the effect (typing animations,
+ * loopers, autoplay) reads from the ref without subscribing to React state.
+ */
+export type FragmentingSignal = RefObject<boolean>
 
-const FragmentExplosionContext = createContext<typeof noopSignal | null>(null)
+const FragmentExplosionContext = createContext<FragmentingSignal | null>(null)
 
 export function FragmentExplosionProvider({ children }: { children: ReactNode }) {
-  return <FragmentExplosionContext.Provider value={noopSignal}>{children}</FragmentExplosionContext.Provider>
+  const signal = useRef<boolean>(false)
+  return (
+    <FragmentExplosionContext.Provider value={signal}>
+      {children}
+    </FragmentExplosionContext.Provider>
+  )
 }
 
-export function useFragmentingSignal() {
-  return useContext(FragmentExplosionContext)
+export function useFragmentingSignal(): FragmentingSignal {
+  const ctx = useContext(FragmentExplosionContext)
+  if (!ctx) {
+    throw new Error("useFragmentingSignal must be used inside <FragmentExplosionProvider>")
+  }
+  return ctx
 }
