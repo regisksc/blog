@@ -76,3 +76,8 @@ public/      — static assets (icons, resume.pdf)
 ## Status JSON
 
 The terminal exposes a `status.json` reflecting the latest command output.
+
+
+## Open Questions
+
+None at this time — see `/docs/QA-FEATURE-GUIDE.md`.
