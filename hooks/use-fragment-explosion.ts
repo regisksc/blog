@@ -1,7 +1,8 @@
-const FRAGMENT_BATCH = 32 // particles per RAF tick (perf)
 import { useState, useCallback, useEffect, useRef, type RefObject } from "react"
 
 import { useFragmentingSignal } from "@/lib/providers/fragment-explosion"
+
+const FRAGMENT_BATCH = 32 // particles per RAF tick (perf)
 
 type Phase = "idle" | "flash" | "burst" | "falling" | "cleanup"
 
