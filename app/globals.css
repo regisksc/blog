@@ -109,3 +109,6 @@ html, body {
   --accent: 74 222 128;
 }
 .theme-color-dark-green { color-scheme: dark; }
+
+
+.section-spacing-final { padding-top: 3rem; padding-bottom: 3rem; }
