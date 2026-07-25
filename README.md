@@ -54,3 +54,14 @@ The terminal accepts `theme` to cycle the accent palette (matrix / green / amber
 - `theme` — cycle accent palette
 - `resume` — open PDF
 - `clear`, `help` — utilities
+
+
+## Project Structure
+
+```
+app/         — Next.js app router
+components/  — feature sections + effects + lab + terminal
+hooks/       — easter eggs, fragment explosion, reduced motion
+lib/         — command catalog, types, utils
+public/      — static assets (icons, resume.pdf)
+```
