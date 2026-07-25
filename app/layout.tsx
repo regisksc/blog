@@ -18,6 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 
 export const metadata = {
+  themeColor: "#22c55e",
+  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/icon.svg",
     apple: "/apple-icon.png",
