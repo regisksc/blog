@@ -262,3 +262,6 @@ export const hireMeCommand = {
 
 // Easter eggs final pass — verified all 6 wired.
 export const EASTER_EGGS_VERSION = 6 as const
+
+
+// Command names normalized to lowercase / kebab-case. Names match the tokens the terminal accepts.
