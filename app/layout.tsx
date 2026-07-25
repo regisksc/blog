@@ -15,3 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
+
+export const metadata = {
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
+}
