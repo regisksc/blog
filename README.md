@@ -65,3 +65,9 @@ hooks/       — easter eggs, fragment explosion, reduced motion
 lib/         — command catalog, types, utils
 public/      — static assets (icons, resume.pdf)
 ```
+
+
+## Canvas Experiments
+
+- **Gravity Well** — inverse-square particle solver
+- **Black Hole** — raymarched accretion disk
