@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "// docs:": "see README for dev / build / start commands",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
