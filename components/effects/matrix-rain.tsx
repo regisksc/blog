@@ -1,4 +1,5 @@
-const MATRIX_TRAIL_LENGTH = 24 // cells of fading trail
+"use client"
+
 "use client"
 
 import { useEffect, useState } from "react"
