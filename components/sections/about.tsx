@@ -1,3 +1,4 @@
+"use client"
 
 function CommandLink({ command, label }: { command: string; label: string }) {
   const run = useRunCommand()
@@ -13,7 +14,6 @@ function CommandLink({ command, label }: { command: string; label: string }) {
   )
 }
 
-"use client"
 
 import { useEffect, useState, useRef } from "react"
 import { useReducedMotion } from "@/hooks/use-reduced-motion"
