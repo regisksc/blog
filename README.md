@@ -71,3 +71,8 @@ public/      — static assets (icons, resume.pdf)
 
 - **Gravity Well** — inverse-square particle solver
 - **Black Hole** — raymarched accretion disk
+
+
+## Status JSON
+
+The terminal exposes a `status.json` reflecting the latest command output.
