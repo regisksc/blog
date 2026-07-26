@@ -91,3 +91,8 @@ Easter eggs are intentionally subtle. They are not documented in the help text a
 ## License
 
 MIT — see [LICENSE](./LICENSE) (if present).
+
+
+## Deploy
+
+This site deploys to **https://regis.is-a.dev/** via GitHub Pages. The Actions workflow at `.github/workflows/deploy.yml` builds the static export, uploads the `out/` artifact, and runs `actions/deploy-pages` on every push to `main`.
