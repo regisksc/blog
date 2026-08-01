@@ -1,11 +1,4 @@
 /**
- * Clears the entire canvas (covers both width and height).
- */
-export function clearRect(ctx: CanvasRenderingContext2D, width: number, height: number) {
-  ctx.clearRect(0, 0, width, height)
-}
-
-/**
  * Resolve a CSS custom property to an sRGB tuple usable by canvas.
  * Uses a 1x1 canvas readback to reliably convert any color format
  * (oklch, lab, etc.) that browsers may serialize from getComputedStyle.
@@ -26,22 +19,4 @@ export function resolveCssVar(prop: string): [number, number, number] {
   ctx.fillRect(0, 0, 1, 1)
   const d = ctx.getImageData(0, 0, 1, 1).data
   return [d[0], d[1], d[2]]
-}
-
-
-/**
- * Draws a single glyph at (x, y) with the given color and font.
- * Used by both ascii-background and matrix-rain canvas renderers.
- */
-export function drawGlyph(
-  ctx: CanvasRenderingContext2D,
-  char: string,
-  x: number,
-  y: number,
-  color: [number, number, number],
-  font: string,
-) {
-  ctx.fillStyle = "rgb(" + color[0] + "," + color[1] + "," + color[2] + ")"
-  ctx.font = font
-  ctx.fillText(char, x, y)
 }

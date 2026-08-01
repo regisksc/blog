@@ -4,12 +4,10 @@ import { createContext, useContext, type ReactNode } from "react"
 
 type RunCommand = (command: string) => void
 
-const noopRunCommand: RunCommand = () => {}
-
 const RunCommandContext = createContext<RunCommand | null>(null)
 
-export function RunCommandProvider({ children }: { children: ReactNode }) {
-  return <RunCommandContext.Provider value={noopRunCommand}>{children}</RunCommandContext.Provider>
+export function RunCommandProvider({ run, children }: { run: RunCommand; children: ReactNode }) {
+  return <RunCommandContext.Provider value={run}>{children}</RunCommandContext.Provider>
 }
 
 export function useRunCommand(): RunCommand {
