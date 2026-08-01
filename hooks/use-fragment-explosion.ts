@@ -2,8 +2,6 @@ import { useState, useCallback, useEffect, useRef, type RefObject } from "react"
 
 import { useFragmentingSignal } from "@/lib/providers/fragment-explosion"
 
-const FRAGMENT_BATCH = 32 // particles per RAF tick (perf)
-
 type Phase = "idle" | "flash" | "burst" | "falling" | "cleanup"
 
 const FLASH_MS = 220
@@ -284,17 +282,4 @@ export function useFragmentExplosion(contentRef: RefObject<HTMLDivElement | null
   }, [contentRef, restoreAll, signal])
 
   return { isLocked, trigger }
-}
-
-
-// Seeded RNG for deterministic fragment trajectories — exported alongside the hook.
-export function fragmentMulberry32(seed: number) {
-  let s = seed >>> 0
-  return () => {
-    s = (s + 0x6D2B79F5) | 0
-    let t = s
-    t = Math.imul(t ^ (t >>> 15), t | 1)
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-  }
 }

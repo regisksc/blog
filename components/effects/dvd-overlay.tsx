@@ -74,7 +74,7 @@ export function DvdOverlay() {
   return (
     <div
       aria-hidden="true"
-      aria-label="Dismiss DVD overlay" tabIndex={0} data-testid="dvd-overlay" className="dvd-overlay fixed z-50 pointer-events-none opacity-100"
+      className="dvd-overlay fixed z-50 pointer-events-none opacity-100"
       style={{
         left: `${pos.x}px`,
         top: `${pos.y}px`,

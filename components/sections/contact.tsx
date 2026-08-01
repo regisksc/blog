@@ -65,7 +65,7 @@ export function ContactSection() {
   }
 
   return (
-    <div data-fragment-key="contact" data-copy-permission="true" data-grid="final" className="flex flex-col">
+    <div className="flex flex-col">
       <div className="mb-6 sm:mb-8">
         <div className="mb-4">
           <p className="text-muted-foreground text-xs font-mono">
@@ -198,10 +198,3 @@ export function ContactSection() {
     </div>
   )
 }
-// email copy button
-// social links row
-// status json curl block
-// uses simple-icon
-// email copy feedback
-// layout grid
-// gap rhythm

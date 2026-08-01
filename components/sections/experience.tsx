@@ -59,7 +59,7 @@ export function ExperienceSection() {
   const closePresentation = useCallback(() => setPresentationOpen(false), [])
 
   return (
-    <div data-fragment-key="experience" data-focus-visible="true" data-card-padding="final" className={`flex flex-col transition-opacity duration-300 ease-out ${showContent ? "opacity-100" : "opacity-0"}`}>
+    <div className={`flex flex-col transition-opacity duration-300 ease-out ${showContent ? "opacity-100" : "opacity-0"}`}>
       <div className="mb-4 sm:mb-6">
         <p className="text-muted-foreground text-xs font-mono">
           <span className="text-primary/60" aria-hidden="true"># </span>experience
@@ -190,8 +190,3 @@ export function ExperienceSection() {
     </div>
   )
 }
-// 5 project cards landed
-// card layout grid
-// hover detail reveal
-// card spacing rhythm
-// hover delay

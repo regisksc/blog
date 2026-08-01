@@ -1,7 +1,5 @@
 "use client"
 
-"use client"
-
 import { useEffect, useState } from "react"
 
 /* Glyph pool: Latin (upper + lower), Greek, Cyrillic, Arabic, Hebrew, math
@@ -45,17 +43,6 @@ interface Drop {
   age: number
   maxAge: number
   phraseOffset: number
-}
-
-function mulberry32(seed: number) {
-  let s = seed >>> 0
-  return () => {
-    s = (s + 0x6D2B79F5) | 0
-    let t = s
-    t = Math.imul(t ^ (t >>> 15), t | 1)
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
-  }
 }
 
 function randomGlyph(): string {
@@ -115,24 +102,11 @@ export function MatrixRain() {
 
     if (prefersReducedMotion()) return
 
-    let paused = false
-    const onVisibility = () => {
-      paused = document.hidden
-      if (document.hidden) setDrops([])
-    }
-    document.addEventListener("visibilitychange", onVisibility)
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener("resize", onResize)
-      document.removeEventListener("visibilitychange", onVisibility)
-    }
-
     let raf = 0
     let last = performance.now()
     const frameInterval = 1000 / 60
 
     const tick = (now: number) => {
-      if (paused) { raf = requestAnimationFrame(tick); return }
       const dt = now - last
       if (dt < frameInterval) {
         raf = requestAnimationFrame(tick)
@@ -203,7 +177,7 @@ export function MatrixRain() {
       {drops.map((drop) => (
         <div
           key={drop.id}
-          className="absolute top-0 font-mono text-sm text-primary leading-none drop-opacity"
+          className="absolute top-0 font-mono text-sm text-primary leading-none"
           style={{
             left: drop.x,
             transform: `translate3d(0, ${drop.y}px, 0)`,
