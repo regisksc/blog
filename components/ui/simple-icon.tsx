@@ -23,4 +23,4 @@ export function SimpleIcon({ icon, className, title, ...props }: SimpleIconProps
       <path d={icon.path} />
     </svg>
   )
-}// renders simple-icons
+}
