@@ -92,8 +92,7 @@ export const TerminalInput = forwardRef<TerminalInputHandle, TerminalInputProps>
     }
   }, [])
 
-  // Arrow keys skip empty history.
-    // Refocus on click anywhere in the container
+  // Refocus on click anywhere in the container
   const handleContainerClick = () => {
     if (disabled) return
     inputRef.current?.focus()
@@ -138,7 +137,7 @@ export const TerminalInput = forwardRef<TerminalInputHandle, TerminalInputProps>
       onClick={handleContainerClick}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="font-mono text-sm"><span className="text-primary">$</span> <form onSubmit={handleSubmit} className="flex items-center gap-3">
+        <form onSubmit={handleSubmit} className="flex items-center gap-3">
           <span className="font-mono text-sm select-none shrink-0">
             <span className="hidden sm:inline text-primary">regis@dev </span>
             <span className="text-muted-foreground">~ </span>
@@ -163,7 +162,7 @@ export const TerminalInput = forwardRef<TerminalInputHandle, TerminalInputProps>
               disabled={disabled || isAutoTyping}
             />
           </div>
-        </form></div>
+        </form>
       </div>
     </div>
   )
