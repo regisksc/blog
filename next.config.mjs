@@ -12,6 +12,7 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/blog',
   // Pin the workspace root so Turbopack resolves this project's node_modules
   // instead of a stray parent lockfile (~/package-lock.json).
   turbopack: {
