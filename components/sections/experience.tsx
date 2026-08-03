@@ -10,7 +10,7 @@ const experience = [
   {
     id: "01",
     company: "Jahnel Group",
-    role: "Staff Mobile Engineer",
+    role: "Sr. Mobile Engineer",
     highlightCompany: true,
     companyUrl: "https://www.jahnelgroup.com",
     description:

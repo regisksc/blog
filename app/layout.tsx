@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Regis Kian — Staff Mobile Engineer',
+  title: 'Regis Kian — Sr. Mobile Engineer',
   description:
-    'Staff Mobile Engineer @ Jahnel Group (Bestpass). Cross-stack mobile: Flutter, Swift, Kotlin, FastAPI. 15M+ users served, offline-first architecture, IAP orchestration.',
+    'Sr. Mobile Engineer @ Jahnel Group (Bestpass). Cross-stack mobile: Flutter, Swift, Kotlin, FastAPI. 15M+ users served, offline-first architecture, IAP orchestration.',
   icons: {
     icon: [
       {
