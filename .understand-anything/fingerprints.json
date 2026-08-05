@@ -1,0 +1,2037 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "47bb34558a2209e72b6d7b5c59dd155ac5a34ae5",
+  "generatedAt": "2026-08-05T07:59:46.611Z",
+  "files": {
+    ".claude/rules/no-casual-rule-rewrites.md": {
+      "filePath": ".claude/rules/no-casual-rule-rewrites.md",
+      "contentHash": "6935beb63430aea3129dc53bb494ecab97099562a936a5b4ce6030011aa3e826",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/skills/blog-site-style/SKILL.md": {
+      "filePath": ".claude/skills/blog-site-style/SKILL.md",
+      "contentHash": "b511fd4ddf7c770cd5f9f3c31042bbd7c1e5539249095f6e8c8289743c8a01f3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    ".github/workflows/deploy.yml": {
+      "filePath": ".github/workflows/deploy.yml",
+      "contentHash": "4db513daf7b833d128d3a467a3088703eb29360da65ddcb054fa487a5e978301",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    ".gitignore": {
+      "filePath": ".gitignore",
+      "contentHash": "63da814e2e96f8773dbd32b78ad975b0b9986448b61ed6a013fb03fe7a19374e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": false
+    },
+    "app/globals.css": {
+      "filePath": "app/globals.css",
+      "contentHash": "6c819fd280a7300564ed52529bcba25c410f5ca91d613ebd03be5e2e41d43f81",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 503,
+      "hasStructuralAnalysis": false
+    },
+    "app/layout.tsx": {
+      "filePath": "app/layout.tsx",
+      "contentHash": "4c7f8e597bd697eb4cf371148f683b50a779902b6e90c5fff244906153cdafdf",
+      "functions": [
+        {
+          "name": "RootLayout",
+          "params": [
+            "{\n  children,\n}"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "Metadata",
+            "Viewport"
+          ]
+        },
+        {
+          "source": "next/font/google",
+          "specifiers": [
+            "Inter",
+            "JetBrains_Mono"
+          ]
+        },
+        {
+          "source": "./globals.css",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "metadata",
+        "viewport",
+        "RootLayout"
+      ],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "app/page.tsx": {
+      "filePath": "app/page.tsx",
+      "contentHash": "9e72ef9873141ea714759d78b526d2633cd9c8fb698c9ad27885380ea29c9d27",
+      "functions": [
+        {
+          "name": "Page",
+          "params": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/components/terminal/portfolio",
+          "specifiers": [
+            "Portfolio"
+          ]
+        },
+        {
+          "source": "@/lib/providers/fragment-explosion",
+          "specifiers": [
+            "FragmentExplosionProvider"
+          ]
+        }
+      ],
+      "exports": [
+        "Page"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "CLAUDE.md": {
+      "filePath": "CLAUDE.md",
+      "contentHash": "a8fb0f671f6c9e1caf962c5cca4df9a477efc6b874da707d00f7f5c9deb3c908",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "components/effects/ascii-background.tsx": {
+      "filePath": "components/effects/ascii-background.tsx",
+      "contentHash": "339e0baff7071d53633ada9d1f89f103b468d28583ace8c3a3076dfd46adafa3",
+      "functions": [
+        {
+          "name": "AsciiBackground",
+          "params": [],
+          "exported": true,
+          "lineCount": 324
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "@/lib/canvas-utils",
+          "specifiers": [
+            "resolveCssVar"
+          ]
+        },
+        {
+          "source": "@/hooks/use-reduced-motion",
+          "specifiers": [
+            "useReducedMotion"
+          ]
+        }
+      ],
+      "exports": [
+        "AsciiBackground"
+      ],
+      "totalLines": 361,
+      "hasStructuralAnalysis": true
+    },
+    "components/effects/dvd-overlay.test.tsx": {
+      "filePath": "components/effects/dvd-overlay.test.tsx",
+      "contentHash": "47602b30cab32a10fc8ba8b2f7474d7dd781a95caf1c3bee8f8d34695169d9c4",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "render",
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "beforeEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./dvd-overlay",
+          "specifiers": [
+            "DvdOverlay"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "components/effects/dvd-overlay.tsx": {
+      "filePath": "components/effects/dvd-overlay.tsx",
+      "contentHash": "ebb6941d0e19d0cb3fb9c68e5966434d1eba5a8ed920e5fe16c8351d350ed33f",
+      "functions": [
+        {
+          "name": "pickTheme",
+          "params": [
+            "current"
+          ],
+          "returnType": "Theme",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "DvdOverlay",
+          "params": [],
+          "exported": true,
+          "lineCount": 70
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState",
+            "useCallback"
+          ]
+        },
+        {
+          "source": "@/lib/hire-me-art",
+          "specifiers": [
+            "HIRE_ME_BANNER"
+          ]
+        },
+        {
+          "source": "@/components/effects/glitch-banner",
+          "specifiers": [
+            "GlitchBanner"
+          ]
+        },
+        {
+          "source": "@/lib/types",
+          "specifiers": [
+            "THEMES",
+            "Theme"
+          ]
+        }
+      ],
+      "exports": [
+        "DvdOverlay"
+      ],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "components/effects/glitch-banner.tsx": {
+      "filePath": "components/effects/glitch-banner.tsx",
+      "contentHash": "dcd03a474f194d9563cd47127c6a34894ab4ddd28f6de747001da68b92a96422",
+      "functions": [
+        {
+          "name": "randChar",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "GlitchBanner",
+          "params": [
+            "{\n  lines,\n  label,\n  durationMs = 700,\n  perLineMs = 90,\n  startDelayMs = 250,\n  idle = true,\n  idleRangeMs = [6000, 14000],\n  className,\n  fallbackClassName,\n  fallbackAs: Fallback = \"span\",\n}"
+          ],
+          "exported": true,
+          "lineCount": 80
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState",
+            "ElementType"
+          ]
+        },
+        {
+          "source": "@/lib/ascii-art",
+          "specifiers": [
+            "SCRAMBLE_CHARS"
+          ]
+        },
+        {
+          "source": "@/hooks/use-reduced-motion",
+          "specifiers": [
+            "useReducedMotion"
+          ]
+        }
+      ],
+      "exports": [
+        "GlitchBanner"
+      ],
+      "totalLines": 122,
+      "hasStructuralAnalysis": true
+    },
+    "components/effects/matrix-rain.tsx": {
+      "filePath": "components/effects/matrix-rain.tsx",
+      "contentHash": "626b17f348202f3567a9efffe9aea44c186e61fe39f3f523f920761222a2dc8a",
+      "functions": [
+        {
+          "name": "randomGlyph",
+          "params": [],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "buildGlyphs",
+          "params": [
+            "length"
+          ],
+          "returnType": "string[]",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "buildDrop",
+          "params": [
+            "id",
+            "x",
+            "columns"
+          ],
+          "returnType": "Drop",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "recycle",
+          "params": [
+            "drop",
+            "columns"
+          ],
+          "returnType": "Drop",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "prefersReducedMotion",
+          "params": [],
+          "returnType": "boolean",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "MatrixRain",
+          "params": [],
+          "exported": true,
+          "lineCount": 114
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        }
+      ],
+      "exports": [
+        "MatrixRain"
+      ],
+      "totalLines": 207,
+      "hasStructuralAnalysis": true
+    },
+    "components/lab/black-hole.tsx": {
+      "filePath": "components/lab/black-hole.tsx",
+      "contentHash": "14de1cb751f1518e8f6b96c4c220e7366f8bdc826e2a09924e5ed23864b22acc",
+      "functions": [
+        {
+          "name": "BlackHole",
+          "params": [],
+          "exported": true,
+          "lineCount": 295
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "@/lib/canvas-utils",
+          "specifiers": [
+            "resolveCssVar"
+          ]
+        }
+      ],
+      "exports": [
+        "BlackHole",
+        "BLACK_HOLE_GRID"
+      ],
+      "totalLines": 310,
+      "hasStructuralAnalysis": true
+    },
+    "components/lab/gravity-well.tsx": {
+      "filePath": "components/lab/gravity-well.tsx",
+      "contentHash": "d429e3b484cfe04de0871af6a7eadd528964c3be0a651554ed7be46fe70fa9e2",
+      "functions": [
+        {
+          "name": "spawnParticle",
+          "params": [
+            "at"
+          ],
+          "returnType": "Particle",
+          "exported": false,
+          "lineCount": 20
+        },
+        {
+          "name": "pickChar",
+          "params": [
+            "speed"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "GravityWell",
+          "params": [],
+          "exported": true,
+          "lineCount": 150
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "@/lib/canvas-utils",
+          "specifiers": [
+            "resolveCssVar"
+          ]
+        }
+      ],
+      "exports": [
+        "GravityWell",
+        "GRAVITY_WELL_PARTICLES",
+        "GRAVITY_WELL_GRID"
+      ],
+      "totalLines": 213,
+      "hasStructuralAnalysis": true
+    },
+    "components/lab/lab.tsx": {
+      "filePath": "components/lab/lab.tsx",
+      "contentHash": "76c6a98aa477ee8e4c2447b1b06e19f2ee9bbcb6845d0287a357fd17624e7fbb",
+      "functions": [
+        {
+          "name": "LabSection",
+          "params": [],
+          "exported": true,
+          "lineCount": 63
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "./black-hole",
+          "specifiers": [
+            "BLACK_HOLE_GRID",
+            "BlackHole"
+          ]
+        },
+        {
+          "source": "./gravity-well",
+          "specifiers": [
+            "GRAVITY_WELL_GRID",
+            "GRAVITY_WELL_PARTICLES",
+            "GravityWell"
+          ]
+        }
+      ],
+      "exports": [
+        "LabSection"
+      ],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "components/sections/about.tsx": {
+      "filePath": "components/sections/about.tsx",
+      "contentHash": "611c36da60435b7077dd70be08d299ad46dfa3e270c63a1268e8a7d5ea8caa47",
+      "functions": [
+        {
+          "name": "CommandLink",
+          "params": [
+            "{ command, label }"
+          ],
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "AboutSection",
+          "params": [],
+          "exported": true,
+          "lineCount": 149
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState",
+            "useRef"
+          ]
+        },
+        {
+          "source": "@/components/ui/ascii-banner",
+          "specifiers": [
+            "AsciiBanner"
+          ]
+        },
+        {
+          "source": "@/lib/providers/fragment-explosion",
+          "specifiers": [
+            "useFragmentingSignal"
+          ]
+        },
+        {
+          "source": "@/lib/providers/run-command",
+          "specifiers": [
+            "useRunCommand"
+          ]
+        }
+      ],
+      "exports": [
+        "AboutSection"
+      ],
+      "totalLines": 203,
+      "hasStructuralAnalysis": true
+    },
+    "components/sections/contact.tsx": {
+      "filePath": "components/sections/contact.tsx",
+      "contentHash": "bd3833653884e415931cbf3aed51046a1c1c74a5aeaf66940ffc13084fadf263",
+      "functions": [
+        {
+          "name": "ContactSection",
+          "params": [],
+          "exported": true,
+          "lineCount": 174
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "ArrowUpRight",
+            "Check",
+            "Copy",
+            "Linkedin"
+          ]
+        },
+        {
+          "source": "simple-icons",
+          "specifiers": [
+            "siGithub",
+            "siWhatsapp",
+            "SimpleIconType"
+          ]
+        },
+        {
+          "source": "@/components/ui/simple-icon",
+          "specifiers": [
+            "SimpleIcon"
+          ]
+        }
+      ],
+      "exports": [
+        "ContactSection"
+      ],
+      "totalLines": 201,
+      "hasStructuralAnalysis": true
+    },
+    "components/sections/experience.tsx": {
+      "filePath": "components/sections/experience.tsx",
+      "contentHash": "2fda9d189b308c569f3613cf391d8d9b2bdbfce9fe28a7b1e6885ab1cf928955",
+      "functions": [
+        {
+          "name": "ExperienceSection",
+          "params": [],
+          "exported": true,
+          "lineCount": 149
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useCallback",
+            "useEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "ArrowUpRight"
+          ]
+        },
+        {
+          "source": "../terminal/pdf-window",
+          "specifiers": [
+            "PdfWindow"
+          ]
+        }
+      ],
+      "exports": [
+        "ExperienceSection"
+      ],
+      "totalLines": 193,
+      "hasStructuralAnalysis": true
+    },
+    "components/sections/section-map.ts": {
+      "filePath": "components/sections/section-map.ts",
+      "contentHash": "e0190beb8bfebfe7dd210cb2c5d786e7cdeb4bd4ea69ae2b54a117d16dbc7a28",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ComponentType"
+          ]
+        },
+        {
+          "source": "@/lib/types",
+          "specifiers": [
+            "Section"
+          ]
+        },
+        {
+          "source": "./about",
+          "specifiers": [
+            "AboutSection"
+          ]
+        },
+        {
+          "source": "./experience",
+          "specifiers": [
+            "ExperienceSection"
+          ]
+        },
+        {
+          "source": "./contact",
+          "specifiers": [
+            "ContactSection"
+          ]
+        },
+        {
+          "source": "../lab/lab",
+          "specifiers": [
+            "LabSection"
+          ]
+        }
+      ],
+      "exports": [
+        "SECTION_COMPONENTS"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/pdf-window.test.tsx": {
+      "filePath": "components/terminal/pdf-window.test.tsx",
+      "contentHash": "6c96aae566d03b6e6f8108fb91b635daec98c2d0b32b840b7e08f27888aea07f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "fireEvent",
+            "render",
+            "screen"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "createRef"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./pdf-window",
+          "specifiers": [
+            "PdfWindow"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 127,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/pdf-window.tsx": {
+      "filePath": "components/terminal/pdf-window.tsx",
+      "contentHash": "9178e2a76e04d29d07fd94c706b4d080880bb3ebf724a6d79081de9c251157e2",
+      "functions": [
+        {
+          "name": "PdfWindow",
+          "params": [
+            "{ open, onClose, src, title, returnFocusRef }"
+          ],
+          "exported": true,
+          "lineCount": 159
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useCallback",
+            "useEffect",
+            "useLayoutEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "react-dom",
+          "specifiers": [
+            "createPortal"
+          ]
+        }
+      ],
+      "exports": [
+        "PdfWindow"
+      ],
+      "totalLines": 176,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/portfolio.test.tsx": {
+      "filePath": "components/terminal/portfolio.test.tsx",
+      "contentHash": "ec0f228ce45ae5cc6eb6eabf7a79a1523d4a6ea3644b6f0a27bcfc96e499041f",
+      "functions": [
+        {
+          "name": "run",
+          "params": [
+            "command"
+          ],
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "fireEvent",
+            "render",
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "beforeAll",
+            "beforeEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "@/lib/commands/catalog",
+          "specifiers": [
+            "SECRET_COMMANDS"
+          ]
+        },
+        {
+          "source": "./portfolio",
+          "specifiers": [
+            "Portfolio"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 125,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/portfolio.tsx": {
+      "filePath": "components/terminal/portfolio.tsx",
+      "contentHash": "431b40fd18197ae7971712cd41abf5c8e24fce9a3c2eb894951eda7a46d34401",
+      "functions": [
+        {
+          "name": "Portfolio",
+          "params": [],
+          "exported": true,
+          "lineCount": 259
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useCallback",
+            "useEffect",
+            "useRef",
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "./terminal-input",
+          "specifiers": [
+            "TerminalInput",
+            "TerminalInputHandle"
+          ]
+        },
+        {
+          "source": "../sections/section-map",
+          "specifiers": [
+            "SECTION_COMPONENTS"
+          ]
+        },
+        {
+          "source": "@/lib/providers/run-command",
+          "specifiers": [
+            "RunCommandProvider"
+          ]
+        },
+        {
+          "source": "../effects/matrix-rain",
+          "specifiers": [
+            "MatrixRain"
+          ]
+        },
+        {
+          "source": "../effects/ascii-background",
+          "specifiers": [
+            "AsciiBackground"
+          ]
+        },
+        {
+          "source": "../effects/dvd-overlay",
+          "specifiers": [
+            "DvdOverlay"
+          ]
+        },
+        {
+          "source": "./scrollback-log",
+          "specifiers": [
+            "ScrollbackLog",
+            "LogEntry"
+          ]
+        },
+        {
+          "source": "@/lib/types",
+          "specifiers": [
+            "Theme",
+            "Section"
+          ]
+        },
+        {
+          "source": "@/lib/types",
+          "specifiers": [
+            "THEMES"
+          ]
+        },
+        {
+          "source": "@/lib/commands/catalog",
+          "specifiers": [
+            "sectionAliases",
+            "CommandResult"
+          ]
+        },
+        {
+          "source": "@/lib/commands/resolver",
+          "specifiers": [
+            "getStaticResponse"
+          ]
+        },
+        {
+          "source": "@/hooks/use-fragment-explosion",
+          "specifiers": [
+            "useFragmentExplosion"
+          ]
+        },
+        {
+          "source": "@/hooks/use-easter-eggs",
+          "specifiers": [
+            "useEasterEggs"
+          ]
+        }
+      ],
+      "exports": [
+        "Portfolio"
+      ],
+      "totalLines": 277,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/scrollback-log.test.tsx": {
+      "filePath": "components/terminal/scrollback-log.test.tsx",
+      "contentHash": "f81246b605f6b169c7551787e51aa9911132155f98b88e140e8b58fcfb01b9dc",
+      "functions": [
+        {
+          "name": "setDimensions",
+          "params": [
+            "element"
+          ],
+          "exported": false,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "fireEvent",
+            "render",
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "beforeAll",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./scrollback-log",
+          "specifiers": [
+            "ScrollbackLog",
+            "LogEntry"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/scrollback-log.tsx": {
+      "filePath": "components/terminal/scrollback-log.tsx",
+      "contentHash": "7135742f93b9236d65e5a7b70fbfb0b9c3f504660880ad56e6a0654f173edd2d",
+      "functions": [
+        {
+          "name": "ScrollbackLog",
+          "params": [
+            "{ entries }"
+          ],
+          "exported": true,
+          "lineCount": 83
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useCallback",
+            "useEffect",
+            "useRef",
+            "useState",
+            "ReactNode"
+          ]
+        }
+      ],
+      "exports": [
+        "ScrollbackLog"
+      ],
+      "totalLines": 109,
+      "hasStructuralAnalysis": true
+    },
+    "components/terminal/terminal-input.tsx": {
+      "filePath": "components/terminal/terminal-input.tsx",
+      "contentHash": "0b00f5af6986267b8bedb31ef5f66ad2ace18e2c152fa7f4f9a943ab53a898bf",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useRef",
+            "useEffect",
+            "forwardRef",
+            "useImperativeHandle"
+          ]
+        },
+        {
+          "source": "@/lib/commands/catalog",
+          "specifiers": [
+            "TAB_COMPLETE_COMMANDS"
+          ]
+        }
+      ],
+      "exports": [
+        "TerminalInput"
+      ],
+      "totalLines": 170,
+      "hasStructuralAnalysis": true
+    },
+    "components/ui/ascii-banner.tsx": {
+      "filePath": "components/ui/ascii-banner.tsx",
+      "contentHash": "1080b044958627f3291c05761362c0d3727362d58cf466b94c2ebe3b9da200ee",
+      "functions": [
+        {
+          "name": "AsciiBanner",
+          "params": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/lib/ascii-art",
+          "specifiers": [
+            "REGIS_BANNER"
+          ]
+        },
+        {
+          "source": "@/components/effects/glitch-banner",
+          "specifiers": [
+            "GlitchBanner"
+          ]
+        }
+      ],
+      "exports": [
+        "AsciiBanner"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "components/ui/simple-icon.tsx": {
+      "filePath": "components/ui/simple-icon.tsx",
+      "contentHash": "b73c2edfa36f79d80cfe6d4ae5037b45cfac3047f6db55b767f3fd96e571623f",
+      "functions": [
+        {
+          "name": "SimpleIcon",
+          "params": [
+            "{ icon, className, title, ...props }"
+          ],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        }
+      ],
+      "exports": [
+        "SimpleIcon"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "docs/QA-FEATURE-GUIDE.md": {
+      "filePath": "docs/QA-FEATURE-GUIDE.md",
+      "contentHash": "915c19dea4291293fd29a1281c6236478c1b2d13050852c51225774c8780b1b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "eslint.config.mjs": {
+      "filePath": "eslint.config.mjs",
+      "contentHash": "9ac4e0d6fc06a0ee5ef1902ea3f4cacfb96c5248faae4b006bfc23f65d64d4fc",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@eslint/js",
+          "specifiers": [
+            "js"
+          ]
+        },
+        {
+          "source": "@typescript-eslint/parser",
+          "specifiers": [
+            "tsParser"
+          ]
+        },
+        {
+          "source": "@typescript-eslint/eslint-plugin",
+          "specifiers": [
+            "tsPlugin"
+          ]
+        },
+        {
+          "source": "globals",
+          "specifiers": [
+            "globals"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-easter-eggs.matrix.test.ts": {
+      "filePath": "hooks/use-easter-eggs.matrix.test.ts",
+      "contentHash": "803b223698647899f789267ab4e725359514b5e1d6f7ba16aaf9c45918c8774f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "renderHook"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./use-easter-eggs",
+          "specifiers": [
+            "useEasterEggs"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-easter-eggs.rapid.test.ts": {
+      "filePath": "hooks/use-easter-eggs.rapid.test.ts",
+      "contentHash": "8fdb44e77dcb58a722d316e418be5ee214e8a336bdcb19cce87e724378d8d405",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "renderHook"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./use-easter-eggs",
+          "specifiers": [
+            "useEasterEggs"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-easter-eggs.test.ts": {
+      "filePath": "hooks/use-easter-eggs.test.ts",
+      "contentHash": "49e4a2c9bf43758251c94d29519d4dbdb8b4053e59cb8e10938943f2ab12a07d",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "renderHook"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./use-easter-eggs",
+          "specifiers": [
+            "useEasterEggs"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-easter-eggs.ts": {
+      "filePath": "hooks/use-easter-eggs.ts",
+      "contentHash": "0440897016b0a28ce73e767815a52a9fb94fc858f880a102f1aa9f12cd31d841",
+      "functions": [
+        {
+          "name": "usePhaseController",
+          "params": [
+            "defaults"
+          ],
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "useEasterEggs",
+          "params": [
+            "setTheme"
+          ],
+          "exported": true,
+          "lineCount": 50
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect",
+            "useRef",
+            "useCallback",
+            "useMemo"
+          ]
+        },
+        {
+          "source": "@/lib/types",
+          "specifiers": [
+            "THEMES",
+            "Theme"
+          ]
+        }
+      ],
+      "exports": [
+        "useEasterEggs"
+      ],
+      "totalLines": 109,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-fragment-explosion.retrigger.test.ts": {
+      "filePath": "hooks/use-fragment-explosion.retrigger.test.ts",
+      "contentHash": "c888fb4ed9ec08fe0ea4741f3a36ab47ca87c42e1349e95702f2ae0c60b1321d",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "renderHook"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./use-fragment-explosion",
+          "specifiers": [
+            "useFragmentExplosion"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-fragment-explosion.test.tsx": {
+      "filePath": "hooks/use-fragment-explosion.test.tsx",
+      "contentHash": "938b9c0e1ca1bafbfd29ce8e16b43ec63e31a7c63be1805a77f585438db221c2",
+      "functions": [
+        {
+          "name": "Harness",
+          "params": [
+            "{ onReady }"
+          ],
+          "exported": false,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "act",
+            "render"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useRef"
+          ]
+        },
+        {
+          "source": "@/lib/providers/fragment-explosion",
+          "specifiers": [
+            "FragmentExplosionProvider"
+          ]
+        },
+        {
+          "source": "./use-fragment-explosion",
+          "specifiers": [
+            "useFragmentExplosion"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-fragment-explosion.ts": {
+      "filePath": "hooks/use-fragment-explosion.ts",
+      "contentHash": "7620a7499cf0645a7be56733c908e73dfe88e4ab4cb7abe698a75a446da65a37",
+      "functions": [
+        {
+          "name": "buildChunkForTextNode",
+          "params": [
+            "textNode"
+          ],
+          "returnType": "ReplacedText | null",
+          "exported": false,
+          "lineCount": 31
+        },
+        {
+          "name": "useFragmentExplosion",
+          "params": [
+            "contentRef"
+          ],
+          "exported": true,
+          "lineCount": 206
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useCallback",
+            "useEffect",
+            "useRef",
+            "RefObject"
+          ]
+        },
+        {
+          "source": "@/lib/providers/fragment-explosion",
+          "specifiers": [
+            "useFragmentingSignal"
+          ]
+        }
+      ],
+      "exports": [
+        "useFragmentExplosion"
+      ],
+      "totalLines": 286,
+      "hasStructuralAnalysis": true
+    },
+    "hooks/use-reduced-motion.ts": {
+      "filePath": "hooks/use-reduced-motion.ts",
+      "contentHash": "5069c69d544417901a1caf741bf9dc3c935f17ab14592f892ee94338be96612a",
+      "functions": [
+        {
+          "name": "useReducedMotion",
+          "params": [],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        }
+      ],
+      "exports": [
+        "useReducedMotion"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "lib/ascii-art.ts": {
+      "filePath": "lib/ascii-art.ts",
+      "contentHash": "7930a1c0d353477704cec4a7c8be957e9c194d2b420424916148e3aff980acde",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "REGIS_BANNER",
+        "SCRAMBLE_CHARS"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "lib/canvas-utils.ts": {
+      "filePath": "lib/canvas-utils.ts",
+      "contentHash": "493dbcc71f5ad35a673b1dd04904021eef93701bfb06ef2fba35c76a8d2a9235",
+      "functions": [
+        {
+          "name": "resolveCssVar",
+          "params": [
+            "prop"
+          ],
+          "returnType": "[number, number, number]",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "resolveCssVar"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "lib/commands/catalog.ts": {
+      "filePath": "lib/commands/catalog.ts",
+      "contentHash": "372f95e63dff230fcf1098c97a8f1b59cc0866a0ca8e5df83ba50c95a84beff0",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "../types",
+          "specifiers": [
+            "Section"
+          ]
+        }
+      ],
+      "exports": [
+        "TAB_COMPLETE_COMMANDS",
+        "sectionAliases",
+        "staticCommands",
+        "randomResponses",
+        "SECRET_COMMANDS",
+        "eaResponses",
+        "gameCompanyResponses",
+        "HELP_TEXT"
+      ],
+      "totalLines": 187,
+      "hasStructuralAnalysis": true
+    },
+    "lib/commands/commands.test.ts": {
+      "filePath": "lib/commands/commands.test.ts",
+      "contentHash": "1c74c20b4ceeaed0fbb7faec8e68eb017f043a05b9984c44cfeb4e4879a50584",
+      "functions": [
+        {
+          "name": "messageFor",
+          "params": [
+            "command"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "exposedSecretCommands",
+          "params": [
+            "text"
+          ],
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach",
+            "describe",
+            "expect",
+            "it",
+            "vi"
+          ]
+        },
+        {
+          "source": "./resolver",
+          "specifiers": [
+            "getStaticResponse"
+          ]
+        },
+        {
+          "source": "./session",
+          "specifiers": [
+            "resetGameCommandState",
+            "resetSecretCommandState"
+          ]
+        },
+        {
+          "source": "./catalog",
+          "specifiers": [
+            "SECRET_COMMANDS",
+            "TAB_COMPLETE_COMMANDS"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 169,
+      "hasStructuralAnalysis": true
+    },
+    "lib/commands/resolver.ts": {
+      "filePath": "lib/commands/resolver.ts",
+      "contentHash": "9c61a22e1a4baed0f79a2dcc20d9a4353c3b35ea6afbd840ad6a0cc679c75629",
+      "functions": [
+        {
+          "name": "getStaticResponse",
+          "params": [
+            "command"
+          ],
+          "returnType": "CommandResult | null",
+          "exported": true,
+          "lineCount": 50
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./catalog",
+          "specifiers": [
+            "eaResponses",
+            "gameCompanyResponses",
+            "HELP_TEXT",
+            "randomResponses",
+            "staticCommands"
+          ]
+        },
+        {
+          "source": "./session",
+          "specifiers": [
+            "nextEaResponseIndex",
+            "pickRandom",
+            "popSecretCommand"
+          ]
+        },
+        {
+          "source": "./catalog",
+          "specifiers": [
+            "CommandResult"
+          ]
+        }
+      ],
+      "exports": [
+        "getStaticResponse"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "lib/commands/session.ts": {
+      "filePath": "lib/commands/session.ts",
+      "contentHash": "84ce055de16d4033761a07e22823699da36179f4a32547fbda46ebf09313fbbe",
+      "functions": [
+        {
+          "name": "resetSecretCommandState",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "shuffle",
+          "params": [
+            "items"
+          ],
+          "returnType": "T[]",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "popSecretCommand",
+          "params": [],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "resetGameCommandState",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "nextEaResponseIndex",
+          "params": [],
+          "returnType": "number",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "pickRandom",
+          "params": [
+            "arr"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./catalog",
+          "specifiers": [
+            "SECRET_COMMANDS"
+          ]
+        }
+      ],
+      "exports": [
+        "resetSecretCommandState",
+        "popSecretCommand",
+        "resetGameCommandState",
+        "nextEaResponseIndex",
+        "pickRandom"
+      ],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "lib/hire-me-art.ts": {
+      "filePath": "lib/hire-me-art.ts",
+      "contentHash": "512342189f6c1f6920303ef7aacdf789d00e3fed0e44740fe6e74ca565530188",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "HIRE_ME_BANNER"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "lib/providers/fragment-explosion.tsx": {
+      "filePath": "lib/providers/fragment-explosion.tsx",
+      "contentHash": "126a9359709f76e49e1d8c7562ad4b5a01677512ca3861ea5e33f9be7c63f0be",
+      "functions": [
+        {
+          "name": "FragmentExplosionProvider",
+          "params": [
+            "{ children }"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "useFragmentingSignal",
+          "params": [],
+          "returnType": "FragmentingSignal",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "createContext",
+            "useContext",
+            "useRef",
+            "RefObject",
+            "ReactNode"
+          ]
+        }
+      ],
+      "exports": [
+        "FragmentExplosionProvider",
+        "useFragmentingSignal"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "lib/providers/run-command.tsx": {
+      "filePath": "lib/providers/run-command.tsx",
+      "contentHash": "b86cd36c520a678880a29326fbb7119b9278916a6c4ff00e2fea0d4e7bcc370e",
+      "functions": [
+        {
+          "name": "RunCommandProvider",
+          "params": [
+            "{ run, children }"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "useRunCommand",
+          "params": [],
+          "returnType": "RunCommand",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "createContext",
+            "useContext",
+            "ReactNode"
+          ]
+        }
+      ],
+      "exports": [
+        "RunCommandProvider",
+        "useRunCommand"
+      ],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "lib/types.ts": {
+      "filePath": "lib/types.ts",
+      "contentHash": "c6b64f99cb0d75706f29ebde8a52138a4152455611502cdb66579f22824551a3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "THEMES"
+      ],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "lib/utils.ts": {
+      "filePath": "lib/utils.ts",
+      "contentHash": "e46429536f43f5910f5b2b0c50bb2769b510a4558bb4b5d20a3b0a9091dbf7c3",
+      "functions": [
+        {
+          "name": "cn",
+          "params": [
+            "...inputs"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "clsx",
+          "specifiers": [
+            "clsx",
+            "ClassValue"
+          ]
+        },
+        {
+          "source": "tailwind-merge",
+          "specifiers": [
+            "twMerge"
+          ]
+        }
+      ],
+      "exports": [
+        "cn"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "next-env.d.ts": {
+      "filePath": "next-env.d.ts",
+      "contentHash": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./.next/types/routes.d.ts",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "next.config.mjs": {
+      "filePath": "next.config.mjs",
+      "contentHash": "d9bad1cc13a0623304b42ae55bcf68a14f866d30b75c7e717245d52767bcb632",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "child_process",
+          "specifiers": [
+            "execSync"
+          ]
+        },
+        {
+          "source": "url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "path",
+          "specifiers": [
+            "dirname"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "3e35b12a476100e80f5dec20da31f1d0adc57f98763d8b94a280892c5d6d1ffd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "postcss.config.mjs": {
+      "filePath": "postcss.config.mjs",
+      "contentHash": "54b5708e687b8c9ecc8dbeebf29801dbec1213f890c5e018d7ca9c1541a6f7e3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "public/.nojekyll": {
+      "filePath": "public/.nojekyll",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "public/CNAME": {
+      "filePath": "public/CNAME",
+      "contentHash": "b4b1e0afe16c9413b3e9f3979cfea711647841ecace1bd7e0f64006660e10533",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "public/icon.svg": {
+      "filePath": "public/icon.svg",
+      "contentHash": "4a03a7747ae44df1bf1cd632f02f9977309fac963125bda4ab60116dfa356b11",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": false
+    },
+    "public/status.json": {
+      "filePath": "public/status.json",
+      "contentHash": "053c033f174797119aaeb0fa9c98a890da1ab5e563898a2bd874c98947dc90b6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "d4ed2222258b5f3f41c1674bb1c18dc6e1418d9c8c2624b6a6abb75fee87eccc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 99,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "6f9ac7befd6e3251a98d3f0c860f57334e9b92b3b8198580973cf108314e8922",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "vitest.config.ts": {
+      "filePath": "vitest.config.ts",
+      "contentHash": "c198ed5c15f528c244f26923bba25dc75183f84a27125d10421d4da987f04942",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vitest/config",
+          "specifiers": [
+            "defineConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "vitest.setup.ts": {
+      "filePath": "vitest.setup.ts",
+      "contentHash": "c59e6512cbe857fe69ab930f314667d469c1b1337a68ac1711c84ddf5b207832",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@testing-library/jest-dom/vitest",
+          "specifiers": []
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "cleanup"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "afterEach"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

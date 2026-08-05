@@ -1,0 +1,2626 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "blog",
+    "languages": [
+      "css",
+      "gitignore",
+      "javascript",
+      "json",
+      "markdown",
+      "svg",
+      "text",
+      "typescript",
+      "yaml"
+    ],
+    "frameworks": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Vitest",
+      "Testing Library"
+    ],
+    "description": "A terminal/REPL-styled developer portfolio built on the Next.js App Router with React 19 and Tailwind CSS v4. It exposes a command-driven UI (help/about/experience/projects/contact/lab/theme) backed by a command catalog and resolver in lib/commands/, plus canvas-based easter eggs and lab experiments (matrix-rain, glitch banner, DVD bounce, shatter/crash fragment explosion, gravity-well particle solver, raymarched black hole). Ships as a static export to GitHub Pages, with a Vitest + Testing Library suite covering the terminal, effects, and hooks.",
+    "analyzedAt": "2026-08-05T07:59:05.701Z",
+    "gitCommitHash": "47bb34558a2209e72b6d7b5c59dd155ac5a34ae5"
+  },
+  "nodes": [
+    {
+      "id": "file:app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "app/globals.css",
+      "summary": "Global stylesheet (503 lines) defining the terminal/REPL portfolio aesthetic with Tailwind v4 directives, CSS custom properties for the theme palette (e.g. --primary), and styling for terminal chrome, scrollbars, and effects.",
+      "tags": [
+        "css",
+        "globals",
+        "theme",
+        "tailwind",
+        "terminal-aesthetic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "app/layout.tsx",
+      "summary": "Root layout for the Next.js App Router. Exports static metadata and viewport and renders the default RootLayout component that wraps children in the app shell, importing global styles.",
+      "tags": [
+        "nextjs",
+        "app-router",
+        "layout",
+        "metadata",
+        "root"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:app/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "app/page.tsx",
+      "summary": "Home page component that renders the Portfolio terminal component wrapped in the FragmentExplosionProvider, serving as the single-page portfolio entry point.",
+      "tags": [
+        "nextjs",
+        "page",
+        "portfolio",
+        "entry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:components/ui/ascii-banner.tsx",
+      "type": "file",
+      "name": "ascii-banner.tsx",
+      "filePath": "components/ui/ascii-banner.tsx",
+      "summary": "Small UI component that renders an ASCII-art banner by transforming text through an ascii-art helper, with a glitch-banner effect. Named export AsciiBanner.",
+      "tags": [
+        "ui",
+        "ascii-art",
+        "banner",
+        "component"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:components/ui/simple-icon.tsx",
+      "type": "file",
+      "name": "simple-icon.tsx",
+      "filePath": "components/ui/simple-icon.tsx",
+      "summary": "Icon helper component that renders a simple SVG-based icon with optional title and className, merging classes via the cn utility from lib/utils.",
+      "tags": [
+        "ui",
+        "icon",
+        "svg",
+        "a11y"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:components/ui/simple-icon.tsx:SimpleIcon",
+      "type": "function",
+      "name": "SimpleIcon",
+      "filePath": "components/ui/simple-icon.tsx",
+      "summary": "Renders an icon (possibly pictogram text) with merged class names and title, calling cn to combine className.",
+      "tags": [
+        "icon",
+        "render",
+        "cn"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:components/terminal/portfolio.tsx",
+      "type": "file",
+      "name": "portfolio.tsx",
+      "filePath": "components/terminal/portfolio.tsx",
+      "summary": "Core terminal-component (276 lines) implementing the interactive REPL portfolio: manages command input, section routing, log/scrollback, theme toggling, easter eggs (glitch, matrix, dvd, upside-down, fragment explosion), auto-typing, and the run-command provider. Exports a default Portfolio named component. Heavy useEffect/useCallback/useState usage.",
+      "tags": [
+        "terminal",
+        "portfolio",
+        "repl",
+        "commands",
+        "easter-eggs",
+        "effects",
+        "core",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:components/terminal/portfolio.tsx:Portfolio",
+      "type": "function",
+      "name": "Portfolio",
+      "filePath": "components/terminal/portfolio.tsx",
+      "summary": "Main component coordinating all terminal state and UI: theme/section bureau, command handling, section rendering, easter-egg triggers, input auto-typing, and scrollback.",
+      "tags": [
+        "component",
+        "orchestration",
+        "repl",
+        "effects"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:components/terminal/portfolio.test.tsx",
+      "type": "file",
+      "name": "portfolio.test.tsx",
+      "filePath": "components/terminal/portfolio.test.tsx",
+      "summary": "React component test for Portfolio using Testing Library. Provides a run(command) helper that types into the terminal input and submits, exercising command execution paths against the command catalog.",
+      "tags": [
+        "test",
+        "react-testing-library",
+        "portfolio",
+        "commands"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:components/terminal/scrollback-log.tsx",
+      "type": "file",
+      "name": "scrollback-log.tsx",
+      "filePath": "components/terminal/scrollback-log.tsx",
+      "summary": "Displays terminal output lines with auto-scroll behavior: tracks resize via ResizeObserver and window events, shows a scroll-to-bottom cue when scrolled up, and renders entries into a log list. Exports ScrollbackLog.",
+      "tags": [
+        "terminal",
+        "scrollback",
+        "scroll",
+        "log",
+        "resize",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:components/terminal/scrollback-log.tsx:ScrollbackLog",
+      "type": "function",
+      "name": "ScrollbackLog",
+      "filePath": "components/terminal/scrollback-log.tsx",
+      "summary": "Renders a scrollable log of entries with auto-scroll-to-newest logic and a scroll cue, wired to ResizeObserver and window resize listeners.",
+      "tags": [
+        "component",
+        "scroll",
+        "observers"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:components/terminal/scrollback-log.test.tsx",
+      "type": "file",
+      "name": "scrollback-log.test.tsx",
+      "filePath": "components/terminal/scrollback-log.test.tsx",
+      "summary": "Test for ScrollbackLog covering auto-scroll behavior, using a setDimensions helper that mocks element geometry via Object.defineProperties.",
+      "tags": [
+        "test",
+        "scrollback",
+        "mock-geometry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:components/terminal/terminal-input.tsx",
+      "type": "file",
+      "name": "terminal-input.tsx",
+      "filePath": "components/terminal/terminal-input.tsx",
+      "summary": "Terminal command input field handling submission and editing UX: command history navigation (up/down arrows), tab completion from the command catalog, shake-on-error feedback, and focus management. Exports TerminalInput.",
+      "tags": [
+        "terminal",
+        "input",
+        "history",
+        "tab-completion",
+        "keyboard"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:components/terminal/pdf-window.tsx",
+      "type": "file",
+      "name": "pdf-window.tsx",
+      "filePath": "components/terminal/pdf-window.tsx",
+      "summary": "Accessible modal window that displays a PDF via portal; implements focus trapping, Esc-to-close, fade/mount transitions, theme-colored title bar read from --primary CSS var, and focus restoration on close. Exports PdfWindow.",
+      "tags": [
+        "modal",
+        "pdf",
+        "portal",
+        "a11y",
+        "focus-trap",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:components/terminal/pdf-window.tsx:PdfWindow",
+      "type": "function",
+      "name": "PdfWindow",
+      "filePath": "components/terminal/pdf-window.tsx",
+      "summary": "Portal-rendered modal for a PDF with fade animation, focus trap keyboard handling, title bar color derived from theme CSS var, and focus return to a callback ref.",
+      "tags": [
+        "component",
+        "modal",
+        "portal",
+        "a11y"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:components/terminal/pdf-window.test.tsx",
+      "type": "file",
+      "name": "pdf-window.test.tsx",
+      "filePath": "components/terminal/pdf-window.test.tsx",
+      "summary": "Test for the PdfWindow modal covering open/close transitions, focus trapping, and escape-key dismissal.",
+      "tags": [
+        "test",
+        "pdf-window",
+        "modal",
+        "a11y"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:components/sections/section-map.ts",
+      "type": "file",
+      "name": "section-map.ts",
+      "filePath": "components/sections/section-map.ts",
+      "summary": "Exports SECTION_COMPONENTS, a mapping from section keys (typed by lib/types) to their React section components (about, experience, contact, lab).",
+      "tags": [
+        "sections",
+        "map",
+        "routing",
+        "registry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/commands/catalog.ts",
+      "type": "file",
+      "name": "catalog.ts",
+      "filePath": "lib/commands/catalog.ts",
+      "summary": "Central command catalog for the terminal: exports TAB_COMPLETE_COMMANDS, section aliases, static command responses, random responses, SECRET_COMMANDS, and themed response sets (EA, game companies) plus HELP_TEXT. No functions.",
+      "tags": [
+        "commands",
+        "catalog",
+        "data",
+        "easter-eggs",
+        "help",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/commands/resolver.ts",
+      "type": "file",
+      "name": "resolver.ts",
+      "filePath": "lib/commands/resolver.ts",
+      "summary": "Command resolver exporting getStaticResponse, which maps a normalized command to a terminal response, delegating to catalog data and session helpers (pickRandom, popSecretCommand, nextEaResponseIndex) for secret and themed output.",
+      "tags": [
+        "commands",
+        "resolver",
+        "logic",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lib/commands/resolver.ts:getStaticResponse",
+      "type": "function",
+      "name": "getStaticResponse",
+      "filePath": "lib/commands/resolver.ts",
+      "summary": "Given a command string, returns the appropriate static/secret/themed terminal response using catalog lookups and session helpers like pickRandom, popSecretCommand, and nextEaResponseIndex.",
+      "tags": [
+        "function",
+        "command",
+        "resolve"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/commands/session.ts",
+      "type": "file",
+      "name": "session.ts",
+      "filePath": "lib/commands/session.ts",
+      "summary": "Stateless terminal session helpers: shuffle and popSecretCommand for cycling secret commands without immediate repeats, nextEaResponseIndex for EA response rotation, and pickRandom. Exports the helper functions separately.",
+      "tags": [
+        "commands",
+        "session",
+        "state",
+        "random",
+        "helpers",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/commands/commands.test.ts",
+      "type": "file",
+      "name": "commands.test.ts",
+      "filePath": "lib/commands/commands.test.ts",
+      "summary": "Unit tests for the command pipeline asserting getStaticResponse output and that secret commands are not exposed in responses. Uses helper functions messageFor and exposedSecretCommands.",
+      "tags": [
+        "test",
+        "commands",
+        "resolver",
+        "secrets"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:lib/providers/fragment-explosion.tsx",
+      "type": "file",
+      "name": "fragment-explosion.tsx",
+      "filePath": "lib/providers/fragment-explosion.tsx",
+      "summary": "Context provider exposing a fragment-explosion signal: FragmentExplosionProvider holds state/ref and useFragmentingSignal consumes the context. Used to trigger a full-page fragment animation.",
+      "tags": [
+        "context",
+        "provider",
+        "fragment",
+        "effect",
+        "hook"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/providers/run-command.tsx",
+      "type": "file",
+      "name": "run-command.tsx",
+      "filePath": "lib/providers/run-command.tsx",
+      "summary": "Context provider (RunCommandProvider) that passes a run() callback to children, with useRunCommand hook consuming it — lets non-terminal code trigger terminal command execution.",
+      "tags": [
+        "context",
+        "provider",
+        "command",
+        "hook"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/types.ts",
+      "type": "file",
+      "name": "types.ts",
+      "filePath": "lib/types.ts",
+      "summary": "Tiny module exporting the THEMES constant (readonly theme list) used for theme cycling/validation. No functions or classes.",
+      "tags": [
+        "types",
+        "themes",
+        "constants"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lib/utils.ts",
+      "type": "file",
+      "name": "utils.ts",
+      "filePath": "lib/utils.ts",
+      "summary": "Export of cn, a className merge helper combining clsx and twMerge (Tailwind v4) for conditional, deduplicated classes.",
+      "tags": [
+        "utils",
+        "cn",
+        "clsx",
+        "twmerge"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lib/utils.ts:cn",
+      "type": "function",
+      "name": "cn",
+      "filePath": "lib/utils.ts",
+      "summary": "Merges multiple class inputs with clsx then deduplicates/merges conflicting Tailwind classes via twMerge.",
+      "tags": [
+        "function",
+        "helper",
+        "classnames"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:components/effects/ascii-background.tsx",
+      "type": "file",
+      "name": "ascii-background.tsx",
+      "filePath": "components/effects/ascii-background.tsx",
+      "summary": "Full-viewport animated ASCII field rendered to canvas using a static domain-warped fBm value-noise field with palette-rotation color cycling, a pointer-driven 'rip' displacement effect, and reduced-motion / tab-visibility handling.",
+      "tags": [
+        "canvas",
+        "ascii",
+        "animation",
+        "effect",
+        "noise",
+        "palette-rotation",
+        "pointer-interaction"
+      ],
+      "complexity": "complex",
+      "languageNotes": "TypeScript, React 'use client', Canvas 2D, requestAnimationFrame"
+    },
+    {
+      "id": "file:components/effects/dvd-overlay.tsx",
+      "type": "file",
+      "name": "dvd-overlay.tsx",
+      "filePath": "components/effects/dvd-overlay.tsx",
+      "summary": "Bouncing 'hire me' glitch banner that ricochets across the viewport with DVD-screensaver physics, cycling the theme color on each wall hit and re-scrambling the GlitchBanner on a short idle cadence.",
+      "tags": [
+        "easter-egg",
+        "effect",
+        "bounce",
+        "glitch",
+        "theme",
+        "tested"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client', requestAnimationFrame"
+    },
+    {
+      "id": "file:components/effects/dvd-overlay.test.tsx",
+      "type": "file",
+      "name": "dvd-overlay.test.tsx",
+      "filePath": "components/effects/dvd-overlay.test.tsx",
+      "summary": "Vitest suite covering DvdOverlay's lifecycle opacity hand-off to the parent phase controller and its origin-settling behavior in narrow viewports.",
+      "tags": [
+        "test",
+        "vitest",
+        "dvd-overlay"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, testing-library, vitest fake timers"
+    },
+    {
+      "id": "file:components/effects/glitch-banner.tsx",
+      "type": "file",
+      "name": "glitch-banner.tsx",
+      "filePath": "components/effects/glitch-banner.tsx",
+      "summary": "Reusable multi-line figlet art component that scrambles then settles each line character-by-character, with optional idle re-scramble and reduced-motion support.",
+      "tags": [
+        "ascii",
+        "figlet",
+        "scramble",
+        "effect",
+        "reusable",
+        "reduced-motion"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client', requestAnimationFrame"
+    },
+    {
+      "id": "file:components/effects/matrix-rain.tsx",
+      "type": "file",
+      "name": "matrix-rain.tsx",
+      "filePath": "components/effects/matrix-rain.tsx",
+      "summary": "Canvas matrix-rain effect using a wide multi-script glyph pool and falling-drop simulation, with prefers-reduced-motion handling and embedded phrase glyphs.",
+      "tags": [
+        "canvas",
+        "matrix",
+        "rain",
+        "effect",
+        "reduced-motion"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client', Canvas 2D, requestAnimationFrame"
+    },
+    {
+      "id": "file:hooks/use-easter-eggs.ts",
+      "type": "file",
+      "name": "use-easter-eggs.ts",
+      "filePath": "hooks/use-easter-eggs.ts",
+      "summary": "Hook managing the lifecycle and triggers of timed visual easter-egg effects (matrix, glitch, upside-down, DVD) via reusable phase controllers, plus a theme-cycling command.",
+      "tags": [
+        "hook",
+        "easter-egg",
+        "phase-controller",
+        "effects",
+        "theme",
+        "tested"
+      ],
+      "complexity": "complex",
+      "languageNotes": "TypeScript, React hooks"
+    },
+    {
+      "id": "file:hooks/use-easter-eggs.matrix.test.ts",
+      "type": "file",
+      "name": "use-easter-eggs.matrix.test.ts",
+      "filePath": "hooks/use-easter-eggs.matrix.test.ts",
+      "summary": "Vitest test asserting useEasterEggs exposes matrixPhase and triggerMatrix that move the phase to active.",
+      "tags": [
+        "test",
+        "vitest",
+        "easter-eggs"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, testing-library renderHook"
+    },
+    {
+      "id": "file:hooks/use-easter-eggs.rapid.test.ts",
+      "type": "file",
+      "name": "use-easter-eggs.rapid.test.ts",
+      "filePath": "hooks/use-easter-eggs.rapid.test.ts",
+      "summary": "Vitest test verifying a rapid re-trigger of useEasterEggs cancels pending exit/hide timers and stays active.",
+      "tags": [
+        "test",
+        "vitest",
+        "easter-eggs",
+        "rapid-trigger"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, testing-library renderHook"
+    },
+    {
+      "id": "file:hooks/use-easter-eggs.test.ts",
+      "type": "file",
+      "name": "use-easter-eggs.test.ts",
+      "filePath": "hooks/use-easter-eggs.test.ts",
+      "summary": "Vitest test confirming useEasterEggs stops theme cycling when unmounted.",
+      "tags": [
+        "test",
+        "vitest",
+        "easter-eggs",
+        "cleanup"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, testing-library renderHook"
+    },
+    {
+      "id": "file:hooks/use-fragment-explosion.ts",
+      "type": "file",
+      "name": "use-fragment-explosion.ts",
+      "filePath": "hooks/use-fragment-explosion.ts",
+      "summary": "Hook that shatters an element's text into animated per-letter fragments across flash/burst/falling/cleanup phases, batching DOM work via pre-baked randomization buckets and exposing a re-trigger-guarded trigger.",
+      "tags": [
+        "hook",
+        "animation",
+        "fragment",
+        "dom",
+        "provider",
+        "tested"
+      ],
+      "complexity": "complex",
+      "languageNotes": "TypeScript, React hooks, DOM tree-walker"
+    },
+    {
+      "id": "file:hooks/use-fragment-explosion.retrigger.test.ts",
+      "type": "file",
+      "name": "use-fragment-explosion.retrigger.test.ts",
+      "filePath": "hooks/use-fragment-explosion.retrigger.test.ts",
+      "summary": "Vitest test verifying useFragmentExplosion's trigger re-entrancy guard returns false when triggered too soon after a previous trigger.",
+      "tags": [
+        "test",
+        "vitest",
+        "fragment-explosion"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, testing-library renderHook"
+    },
+    {
+      "id": "file:hooks/use-fragment-explosion.test.tsx",
+      "type": "file",
+      "name": "use-fragment-explosion.test.tsx",
+      "filePath": "hooks/use-fragment-explosion.test.tsx",
+      "summary": "Vitest test verifying useFragmentExplosion removes its flash overlay and body classes when unmounted mid-flash, using a Harness render helper within the provider.",
+      "tags": [
+        "test",
+        "vitest",
+        "fragment-explosion",
+        "cleanup"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, testing-library"
+    },
+    {
+      "id": "file:hooks/use-reduced-motion.ts",
+      "type": "file",
+      "name": "use-reduced-motion.ts",
+      "filePath": "hooks/use-reduced-motion.ts",
+      "summary": "SSR-safe hook tracking the prefers-reduced-motion media query, returning false until mounted and then reflecting live changes.",
+      "tags": [
+        "hook",
+        "accessibility",
+        "reduced-motion",
+        "media-query"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, React hooks"
+    },
+    {
+      "id": "file:lib/canvas-utils.ts",
+      "type": "file",
+      "name": "canvas-utils.ts",
+      "filePath": "lib/canvas-utils.ts",
+      "summary": "Utility that resolves any CSS custom property to an sRGB tuple via a 1x1 canvas readback, handling colors serialized as oklch/lab by getComputedStyle.",
+      "tags": [
+        "util",
+        "canvas",
+        "css-vars",
+        "color"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript"
+    },
+    {
+      "id": "file:lib/hire-me-art.ts",
+      "type": "file",
+      "name": "hire-me-art.ts",
+      "filePath": "lib/hire-me-art.ts",
+      "summary": "Figlet ('hire me') ASCII banner art rows consumed by the DVD easter-egg overlay and rendered through GlitchBanner.",
+      "tags": [
+        "ascii",
+        "figlet",
+        "asset"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, figlet ANSI Shadow"
+    },
+    {
+      "id": "file:lib/ascii-art.ts",
+      "type": "file",
+      "name": "ascii-art.ts",
+      "filePath": "lib/ascii-art.ts",
+      "summary": "Hand-embedded ASCII art assets (the 'regis' figlet banner) and the scramble character set used for decode effects.",
+      "tags": [
+        "ascii",
+        "figlet",
+        "asset"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, figlet ANSI Shadow"
+    },
+    {
+      "id": "file:components/lab/black-hole.tsx",
+      "type": "file",
+      "name": "black-hole.tsx",
+      "filePath": "components/lab/black-hole.tsx",
+      "summary": "Canvas lab experiment that ray-marches an ASCII accretion disk around an event horizon with gravitational lensing, supporting drag-to-orbit and scroll-to-zoom interaction.",
+      "tags": [
+        "canvas",
+        "lab",
+        "black-hole",
+        "raymarch",
+        "experiment"
+      ],
+      "complexity": "complex",
+      "languageNotes": "TypeScript, React 'use client', Canvas 2D, IntersectionObserver"
+    },
+    {
+      "id": "file:components/lab/gravity-well.tsx",
+      "type": "file",
+      "name": "gravity-well.tsx",
+      "filePath": "components/lab/gravity-well.tsx",
+      "summary": "Canvas lab experiment simulating a set of particles orbiting a pointer-dragged attractor with Keplerian velocity, click-to-burst and right-click-to-reset interactions.",
+      "tags": [
+        "canvas",
+        "lab",
+        "gravity",
+        "particle",
+        "experiment"
+      ],
+      "complexity": "complex",
+      "languageNotes": "TypeScript, React 'use client', Canvas 2D"
+    },
+    {
+      "id": "file:components/lab/lab.tsx",
+      "type": "file",
+      "name": "lab.tsx",
+      "filePath": "components/lab/lab.tsx",
+      "summary": "Terminal-styled section that hosts the GravityWell and BlackHole canvas experiments with a staggered line-reveal animation.",
+      "tags": [
+        "section",
+        "lab",
+        "canvas",
+        "experiments"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client'"
+    },
+    {
+      "id": "file:components/sections/about.tsx",
+      "type": "file",
+      "name": "about.tsx",
+      "filePath": "components/sections/about.tsx",
+      "summary": "About section with a typewriter phrase cycle, categorized skill groups, and runnable command links wired to the run-command provider.",
+      "tags": [
+        "section",
+        "about",
+        "typewriter",
+        "skills",
+        "command"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client'"
+    },
+    {
+      "id": "file:components/sections/experience.tsx",
+      "type": "file",
+      "name": "experience.tsx",
+      "filePath": "components/sections/experience.tsx",
+      "summary": "Experience section rendering expandable role cards with tech tags and a PDF presentation window trigger for a highlighted role.",
+      "tags": [
+        "section",
+        "experience",
+        "cards",
+        "presentation"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client'"
+    },
+    {
+      "id": "file:components/sections/contact.tsx",
+      "type": "file",
+      "name": "contact.tsx",
+      "filePath": "components/sections/contact.tsx",
+      "summary": "Contact section listing social links with icons and a copy-to-clipboard email helper with a copied-state timeout.",
+      "tags": [
+        "section",
+        "contact",
+        "links",
+        "clipboard"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "TypeScript, React 'use client'"
+    },
+    {
+      "id": "function:components/effects/ascii-background.tsx:AsciiBackground",
+      "type": "function",
+      "name": "AsciiBackground",
+      "filePath": "components/effects/ascii-background.tsx",
+      "summary": "Full-viewport animated ASCII field component; builds a static domain-warped fBm noise field and cycles the color ramp offset over time, with a pointer rip effect.",
+      "tags": [
+        "canvas",
+        "ascii",
+        "noise",
+        "effect"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:components/effects/dvd-overlay.tsx:DvdOverlay",
+      "type": "function",
+      "name": "DvdOverlay",
+      "filePath": "components/effects/dvd-overlay.tsx",
+      "summary": "Bouncing 'hire me' glitch banner overlay with DVD-screensaver physics that shifts theme color on wall hits.",
+      "tags": [
+        "easter-egg",
+        "bounce",
+        "glitch"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:components/effects/glitch-banner.tsx:GlitchBanner",
+      "type": "function",
+      "name": "GlitchBanner",
+      "filePath": "components/effects/glitch-banner.tsx",
+      "summary": "Multi-line figlet art component that scrambles then settles each line character-by-character, with optional idle re-scramble and reduced-motion support.",
+      "tags": [
+        "ascii",
+        "scramble",
+        "effect"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:components/effects/matrix-rain.tsx:MatrixRain",
+      "type": "function",
+      "name": "MatrixRain",
+      "filePath": "components/effects/matrix-rain.tsx",
+      "summary": "Canvas matrix-rain effect with a multi-script glyph pool and falling drops, respecting reduced motion.",
+      "tags": [
+        "canvas",
+        "matrix",
+        "effect"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:hooks/use-easter-eggs.ts:useEasterEggs",
+      "type": "function",
+      "name": "useEasterEggs",
+      "filePath": "hooks/use-easter-eggs.ts",
+      "summary": "Hook exposing phase state and triggers for timed easter-egg effects and a theme-cycling command.",
+      "tags": [
+        "hook",
+        "easter-egg",
+        "effects"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:hooks/use-fragment-explosion.ts:useFragmentExplosion",
+      "type": "function",
+      "name": "useFragmentExplosion",
+      "filePath": "hooks/use-fragment-explosion.ts",
+      "summary": "Hook that shatters element text into animated fragments across phases, batching DOM updates and guarding re-triggers.",
+      "tags": [
+        "hook",
+        "animation",
+        "fragment"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:hooks/use-reduced-motion.ts:useReducedMotion",
+      "type": "function",
+      "name": "useReducedMotion",
+      "filePath": "hooks/use-reduced-motion.ts",
+      "summary": "SSR-safe hook returning whether the user prefers reduced motion, reflecting media-query changes.",
+      "tags": [
+        "hook",
+        "accessibility",
+        "media-query"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lib/canvas-utils.ts:resolveCssVar",
+      "type": "function",
+      "name": "resolveCssVar",
+      "filePath": "lib/canvas-utils.ts",
+      "summary": "Resolves a CSS custom property to an sRGB tuple via a 1x1 canvas readback.",
+      "tags": [
+        "util",
+        "color",
+        "canvas"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:components/lab/black-hole.tsx:BlackHole",
+      "type": "function",
+      "name": "BlackHole",
+      "filePath": "components/lab/black-hole.tsx",
+      "summary": "Ray-marched ASCII accretion-disk canvas with gravitational lensing, drag-to-orbit and scroll-to-zoom.",
+      "tags": [
+        "canvas",
+        "black-hole",
+        "raymarch"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:components/lab/gravity-well.tsx:GravityWell",
+      "type": "function",
+      "name": "GravityWell",
+      "filePath": "components/lab/gravity-well.tsx",
+      "summary": "Particle-orbit canvas simulation around a pointer-dragged attractor with click-to-burst and reset interactions.",
+      "tags": [
+        "canvas",
+        "gravity",
+        "particle"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:components/lab/lab.tsx:LabSection",
+      "type": "function",
+      "name": "LabSection",
+      "filePath": "components/lab/lab.tsx",
+      "summary": "Terminal-styled section hosting the GravityWell and BlackHole canvas experiments with staggered reveal.",
+      "tags": [
+        "section",
+        "lab"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:components/sections/about.tsx:AboutSection",
+      "type": "function",
+      "name": "AboutSection",
+      "filePath": "components/sections/about.tsx",
+      "summary": "About section with typewriter phrases, skill groups, and runnable command links.",
+      "tags": [
+        "section",
+        "typewriter",
+        "skills"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:components/sections/experience.tsx:ExperienceSection",
+      "type": "function",
+      "name": "ExperienceSection",
+      "filePath": "components/sections/experience.tsx",
+      "summary": "Experience section rendering expandable role cards and a PDF presentation trigger.",
+      "tags": [
+        "section",
+        "experience"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:components/sections/contact.tsx:ContactSection",
+      "type": "function",
+      "name": "ContactSection",
+      "filePath": "components/sections/contact.tsx",
+      "summary": "Contact section with social links and a copy-to-clipboard email helper.",
+      "tags": [
+        "section",
+        "contact"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "pipeline:.github/workflows/deploy.yml",
+      "type": "pipeline",
+      "name": "deploy.yml",
+      "filePath": ".github/workflows/deploy.yml",
+      "summary": "GitHub Actions workflow that builds the static export (npm ci + npm run build) on push to main or manual dispatch, uploads the ./out artifact, and deploys it to GitHub Pages via actions/deploy-pages with pages/id-token permissions and a concurrency guard.",
+      "tags": [
+        "github-actions",
+        "ci",
+        "deploy",
+        "github-pages",
+        "static-export",
+        "node22"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "YAML workflow, actions/checkout@v4, actions/setup-node@v4, actions/configure-pages@v5, actions/upload-pages-artifact@v3, actions/deploy-pages@v4"
+    },
+    {
+      "id": "config:.gitignore",
+      "type": "config",
+      "name": ".gitignore",
+      "filePath": ".gitignore",
+      "summary": "Git ignore rules covering node_modules, build artifacts (.next, out, coverage), local env files, Vercel, TypeScript build info, next-env.d.ts, and OS junk.",
+      "tags": [
+        "git",
+        "ignore",
+        "nextjs",
+        "nodejs",
+        "env"
+      ],
+      "complexity": "simple",
+      "languageNotes": "gitignore patterns"
+    },
+    {
+      "id": "config:CLAUDE.md",
+      "type": "config",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Project-level agent rules for commits: one logical change per commit, short imperative Conventional Commits subjects, no 'and' in subjects, fixed author identity regisksc, real diffs only.",
+      "tags": [
+        "agent-rules",
+        "conventional-commits",
+        "git",
+        "contributing"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Markdown"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project readme for the terminal-inspired portfolio: getting-started commands, the REPL command catalog (about/experience/contact, easter eggs matrix/glitch/dvd/shatter/crash, lab, theme, resume, clear/help), project structure, canvas experiments, status.json exposure, and GitHub Pages deployment notes to regis.is-a.dev.",
+      "tags": [
+        "readme",
+        "documentation",
+        "commands",
+        "easter-eggs",
+        "deploy",
+        "terminal"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Markdown"
+    },
+    {
+      "id": "document:docs/QA-FEATURE-GUIDE.md",
+      "type": "document",
+      "name": "QA-FEATURE-GUIDE.md",
+      "filePath": "docs/QA-FEATURE-GUIDE.md",
+      "summary": "Placeholder QA feature guide stating acceptance criteria are defined per feature and used by the QA pass before each release.",
+      "tags": [
+        "qa",
+        "documentation",
+        "acceptance-criteria"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Markdown"
+    },
+    {
+      "id": "config:eslint.config.mjs",
+      "type": "config",
+      "name": "eslint.config.mjs",
+      "filePath": "eslint.config.mjs",
+      "summary": "Flat ESLint 9 config: js.recommended base plus TypeScript parser/plugin for ts/tsx/js/mjs with browser+node globals, JSX support, unused-vars warned with underscore ignore patterns, no-undef and no-empty relaxed.",
+      "tags": [
+        "eslint",
+        "linting",
+        "typescript",
+        "flat-config"
+      ],
+      "complexity": "simple",
+      "languageNotes": "ESM JavaScript, @eslint/js, @typescript-eslint/parser + plugin, globals"
+    },
+    {
+      "id": "config:next-env.d.ts",
+      "type": "config",
+      "name": "next-env.d.ts",
+      "filePath": "next-env.d.ts",
+      "summary": "Auto-generated Next.js type reference file pulling in Next and next/image global types plus generated route types; marked as do-not-edit and gitignored.",
+      "tags": [
+        "typescript",
+        "nextjs",
+        "generated",
+        "types"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript triple-slash references, import of ./.next/types/routes.d.ts"
+    },
+    {
+      "id": "config:next.config.mjs",
+      "type": "config",
+      "name": "next.config.mjs",
+      "filePath": "next.config.mjs",
+      "summary": "Next.js config with output: 'export' for static site generation, unoptimized images, Turbopack root pinned to the workspace, and a commit SHA computed via git rev-parse with SOURCE_COMMIT env fallback.",
+      "tags": [
+        "nextjs",
+        "static-export",
+        "turbopack",
+        "config",
+        "images"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "ESM JavaScript, child_process execSync, fileURLToPath/dirname"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "npm manifest for the blog app: Next.js 16, React 19.2, Tailwind v4, vitest + testing-library dev stack, and scripts for dev/build/start/lint/typecheck/test; dependencies pinned to exact versions.",
+      "tags": [
+        "npm",
+        "package-manifest",
+        "nextjs",
+        "react19",
+        "tailwind",
+        "vitest",
+        "scripts"
+      ],
+      "complexity": "simple",
+      "languageNotes": "JSON"
+    },
+    {
+      "id": "config:postcss.config.mjs",
+      "type": "config",
+      "name": "postcss.config.mjs",
+      "filePath": "postcss.config.mjs",
+      "summary": "Minimal PostCSS config registering the @tailwindcss/postcss plugin for Tailwind CSS v4 processing.",
+      "tags": [
+        "postcss",
+        "tailwind",
+        "css",
+        "config"
+      ],
+      "complexity": "simple",
+      "languageNotes": "ESM JavaScript, postcss-load-config"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript config for the Next.js app: strict mode, bundler module resolution, react-jsx, DOM libs, @/* path alias to project root, Next plugin, and includes for app/src TS files plus generated .next types.",
+      "tags": [
+        "typescript",
+        "tsconfig",
+        "nextjs",
+        "path-alias",
+        "strict"
+      ],
+      "complexity": "simple",
+      "languageNotes": "JSON, moduleResolution bundler, paths @/* -> ./*"
+    },
+    {
+      "id": "config:vitest.config.ts",
+      "type": "config",
+      "name": "vitest.config.ts",
+      "filePath": "vitest.config.ts",
+      "summary": "Vitest config using jsdom environment, the @ alias resolving to the project root, and ./vitest.setup.ts as the setup file.",
+      "tags": [
+        "vitest",
+        "testing",
+        "jsdom",
+        "config",
+        "alias"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, defineConfig from vitest/config"
+    },
+    {
+      "id": "config:vitest.setup.ts",
+      "type": "config",
+      "name": "vitest.setup.ts",
+      "filePath": "vitest.setup.ts",
+      "summary": "Vitest global setup registering @testing-library/jest-dom matchers and running testing-library cleanup after each test.",
+      "tags": [
+        "vitest",
+        "testing-library",
+        "jest-dom",
+        "setup"
+      ],
+      "complexity": "simple",
+      "languageNotes": "TypeScript, afterEach cleanup"
+    },
+    {
+      "id": "config:public/.nojekyll",
+      "type": "config",
+      "name": ".nojekyll",
+      "filePath": "public/.nojekyll",
+      "summary": "Empty marker file that prevents GitHub Pages from running Jekyll over the static export.",
+      "tags": [
+        "github-pages",
+        "static",
+        "marker"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Empty text file"
+    },
+    {
+      "id": "config:public/CNAME",
+      "type": "config",
+      "name": "CNAME",
+      "filePath": "public/CNAME",
+      "summary": "Custom domain record for the GitHub Pages deployment, pointing the site at regis.isroot.in.",
+      "tags": [
+        "github-pages",
+        "custom-domain",
+        "dns"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Plain text domain"
+    },
+    {
+      "id": "file:public/icon.svg",
+      "type": "file",
+      "name": "icon.svg",
+      "filePath": "public/icon.svg",
+      "summary": "32x32 favicon SVG: dark background with a monospace green 'r' glyph, matching the terminal palette.",
+      "tags": [
+        "svg",
+        "favicon",
+        "icon",
+        "terminal-style"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Inline SVG"
+    },
+    {
+      "id": "config:public/status.json",
+      "type": "config",
+      "name": "status.json",
+      "filePath": "public/status.json",
+      "summary": "Static availability status payload exposing available=true and response_time '< 24h' for the terminal status feature; contains mock values.",
+      "tags": [
+        "status",
+        "static-data",
+        "json",
+        "mock"
+      ],
+      "complexity": "simple",
+      "languageNotes": "JSON with trailing comment line"
+    },
+    {
+      "id": "document:.claude/rules/no-casual-rule-rewrites.md",
+      "type": "document",
+      "name": "no-casual-rule-rewrites.md",
+      "filePath": ".claude/rules/no-casual-rule-rewrites.md",
+      "summary": "Agent rule declaring that rule files are durable and must not be rewritten casually without a clear reason recorded in the file.",
+      "tags": [
+        "agent-rules",
+        "durable-rules",
+        "governance"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Markdown"
+    },
+    {
+      "id": "document:.claude/skills/blog-site-style/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".claude/skills/blog-site-style/SKILL.md",
+      "summary": "Project skill instructing agents to preserve the terminal-portfolio aesthetic: dark green + amber default palette, section components inside a single monospace terminal, real diffs only.",
+      "tags": [
+        "skill",
+        "style-guide",
+        "terminal-aesthetic",
+        "palette",
+        "agent-guidance"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Markdown with YAML frontmatter"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:app/layout.tsx",
+      "target": "file:app/globals.css",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:app/page.tsx",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:app/page.tsx",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:app/page.tsx",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "routes",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:app/page.tsx",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "routes",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/ui/simple-icon.tsx",
+      "target": "file:lib/utils.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/ui/simple-icon.tsx:SimpleIcon",
+      "target": "function:lib/utils.ts:cn",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/ui/simple-icon.tsx",
+      "target": "function:components/ui/simple-icon.tsx:SimpleIcon",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/terminal/terminal-input.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/sections/section-map.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/providers/run-command.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/terminal/scrollback-log.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/commands/resolver.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/terminal/terminal-input.tsx",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/terminal/scrollback-log.tsx",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/sections/section-map.ts",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/providers/run-command.tsx",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/commands/resolver.ts",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/types.ts",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "function:components/terminal/portfolio.tsx:Portfolio",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.test.tsx",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.test.tsx",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/terminal/portfolio.test.tsx",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/scrollback-log.test.tsx",
+      "target": "file:components/terminal/scrollback-log.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/scrollback-log.tsx",
+      "target": "file:components/terminal/scrollback-log.test.tsx",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/scrollback-log.tsx",
+      "target": "function:components/terminal/scrollback-log.tsx:ScrollbackLog",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/terminal-input.tsx",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/terminal-input.tsx",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/terminal-input.tsx",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/pdf-window.tsx",
+      "target": "function:components/terminal/pdf-window.tsx:PdfWindow",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/pdf-window.test.tsx",
+      "target": "file:components/terminal/pdf-window.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/pdf-window.tsx",
+      "target": "file:components/terminal/pdf-window.test.tsx",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/pdf-window.tsx",
+      "target": "file:app/globals.css",
+      "type": "reads_from",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/section-map.ts",
+      "target": "file:lib/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/section-map.ts",
+      "target": "file:lib/types.ts",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/sections/section-map.ts",
+      "type": "routes",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/catalog.ts",
+      "target": "file:lib/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/catalog.ts",
+      "target": "file:lib/types.ts",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/resolver.ts",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/resolver.ts",
+      "target": "file:lib/commands/session.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "function:lib/commands/resolver.ts:getStaticResponse",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "reads_from",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/resolver.ts",
+      "target": "function:lib/commands/resolver.ts:getStaticResponse",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/session.ts",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/session.ts",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/resolver.ts",
+      "target": "file:lib/commands/session.ts",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/commands.test.ts",
+      "target": "file:lib/commands/resolver.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/commands.test.ts",
+      "target": "file:lib/commands/session.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/commands.test.ts",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/resolver.ts",
+      "target": "file:lib/commands/commands.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/session.ts",
+      "target": "file:lib/commands/commands.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/commands/catalog.ts",
+      "target": "file:lib/commands/commands.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/providers/fragment-explosion.tsx",
+      "target": "file:app/page.tsx",
+      "type": "exports",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/utils.ts",
+      "target": "function:lib/utils.ts:cn",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/providers/run-command.tsx",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "serves",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:app/globals.css",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/providers/fragment-explosion.tsx",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/ascii-background.tsx",
+      "target": "function:components/effects/ascii-background.tsx:AsciiBackground",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/dvd-overlay.tsx",
+      "target": "function:components/effects/dvd-overlay.tsx:DvdOverlay",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/glitch-banner.tsx",
+      "target": "function:components/effects/glitch-banner.tsx:GlitchBanner",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/matrix-rain.tsx",
+      "target": "function:components/effects/matrix-rain.tsx:MatrixRain",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.ts",
+      "target": "function:hooks/use-easter-eggs.ts:useEasterEggs",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.ts",
+      "target": "function:hooks/use-fragment-explosion.ts:useFragmentExplosion",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-reduced-motion.ts",
+      "target": "function:hooks/use-reduced-motion.ts:useReducedMotion",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:lib/canvas-utils.ts",
+      "target": "function:lib/canvas-utils.ts:resolveCssVar",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/black-hole.tsx",
+      "target": "function:components/lab/black-hole.tsx:BlackHole",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/gravity-well.tsx",
+      "target": "function:components/lab/gravity-well.tsx:GravityWell",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/lab.tsx",
+      "target": "function:components/lab/lab.tsx:LabSection",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/about.tsx",
+      "target": "function:components/sections/about.tsx:AboutSection",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/experience.tsx",
+      "target": "function:components/sections/experience.tsx:ExperienceSection",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/contact.tsx",
+      "target": "function:components/sections/contact.tsx:ContactSection",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/ascii-background.tsx",
+      "target": "file:lib/canvas-utils.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/ascii-background.tsx",
+      "target": "file:hooks/use-reduced-motion.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/dvd-overlay.tsx",
+      "target": "file:lib/hire-me-art.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/dvd-overlay.tsx",
+      "target": "file:components/effects/glitch-banner.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/dvd-overlay.tsx",
+      "target": "file:lib/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/dvd-overlay.test.tsx",
+      "target": "file:components/effects/dvd-overlay.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/glitch-banner.tsx",
+      "target": "file:lib/ascii-art.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/glitch-banner.tsx",
+      "target": "file:hooks/use-reduced-motion.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.ts",
+      "target": "file:lib/types.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.matrix.test.ts",
+      "target": "file:hooks/use-easter-eggs.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.rapid.test.ts",
+      "target": "file:hooks/use-easter-eggs.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.test.ts",
+      "target": "file:hooks/use-easter-eggs.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.ts",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.retrigger.test.ts",
+      "target": "file:hooks/use-fragment-explosion.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.test.tsx",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.test.tsx",
+      "target": "file:hooks/use-fragment-explosion.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/black-hole.tsx",
+      "target": "file:lib/canvas-utils.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/gravity-well.tsx",
+      "target": "file:lib/canvas-utils.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/lab.tsx",
+      "target": "file:components/lab/black-hole.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/lab.tsx",
+      "target": "file:components/lab/gravity-well.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/about.tsx",
+      "target": "file:components/ui/ascii-banner.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/about.tsx",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/about.tsx",
+      "target": "file:lib/providers/run-command.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/experience.tsx",
+      "target": "file:components/terminal/pdf-window.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/contact.tsx",
+      "target": "file:components/ui/simple-icon.tsx",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/effects/dvd-overlay.tsx",
+      "target": "file:components/effects/dvd-overlay.test.tsx",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.ts",
+      "target": "file:hooks/use-easter-eggs.matrix.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.ts",
+      "target": "file:hooks/use-easter-eggs.rapid.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-easter-eggs.ts",
+      "target": "file:hooks/use-easter-eggs.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.ts",
+      "target": "file:hooks/use-fragment-explosion.retrigger.test.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.ts",
+      "target": "file:hooks/use-fragment-explosion.test.tsx",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/effects/dvd-overlay.tsx:DvdOverlay",
+      "target": "function:components/effects/glitch-banner.tsx:GlitchBanner",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/lab/lab.tsx:LabSection",
+      "target": "function:components/lab/black-hole.tsx:BlackHole",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/lab/lab.tsx:LabSection",
+      "target": "function:components/lab/gravity-well.tsx:GravityWell",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/effects/ascii-background.tsx:AsciiBackground",
+      "target": "function:lib/canvas-utils.ts:resolveCssVar",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/lab/black-hole.tsx:BlackHole",
+      "target": "function:lib/canvas-utils.ts:resolveCssVar",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/lab/gravity-well.tsx:GravityWell",
+      "target": "function:lib/canvas-utils.ts:resolveCssVar",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/effects/ascii-background.tsx:AsciiBackground",
+      "target": "function:hooks/use-reduced-motion.ts:useReducedMotion",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/effects/glitch-banner.tsx:GlitchBanner",
+      "target": "function:hooks/use-reduced-motion.ts:useReducedMotion",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:hooks/use-fragment-explosion.ts",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/about.tsx",
+      "target": "file:lib/providers/fragment-explosion.tsx",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/about.tsx",
+      "target": "file:lib/providers/run-command.tsx",
+      "type": "depends_on",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/lab/black-hole.tsx",
+      "target": "file:components/lab/gravity-well.tsx",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "function:components/lab/black-hole.tsx:BlackHole",
+      "target": "function:components/lab/gravity-well.tsx:GravityWell",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "pipeline:.github/workflows/deploy.yml",
+      "target": "file:app/layout.tsx",
+      "type": "deploys",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "pipeline:.github/workflows/deploy.yml",
+      "target": "file:app/page.tsx",
+      "type": "deploys",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "config:next.config.mjs",
+      "target": "file:app/layout.tsx",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:next.config.mjs",
+      "target": "file:app/page.tsx",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:app/layout.tsx",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "config:next-env.d.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:postcss.config.mjs",
+      "target": "file:app/globals.css",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:eslint.config.mjs",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:vitest.config.ts",
+      "target": "config:vitest.setup.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:package.json",
+      "target": "config:vitest.config.ts",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:package.json",
+      "target": "config:eslint.config.mjs",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:app/page.tsx",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:components/terminal/portfolio.tsx",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:lib/commands/catalog.ts",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "pipeline:.github/workflows/deploy.yml",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:public/status.json",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:app/layout.tsx",
+      "target": "file:public/icon.svg",
+      "type": "reads_from",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "config:public/CNAME",
+      "target": "pipeline:.github/workflows/deploy.yml",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "config:public/.nojekyll",
+      "target": "pipeline:.github/workflows/deploy.yml",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "config:.gitignore",
+      "target": "config:next-env.d.ts",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:.claude/skills/blog-site-style/SKILL.md",
+      "target": "file:app/globals.css",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "config:CLAUDE.md",
+      "target": "document:.claude/rules/no-casual-rule-rewrites.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:docs/QA-FEATURE-GUIDE.md",
+      "target": "document:README.md",
+      "type": "related",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:components/sections/section-map.ts",
+      "target": "file:components/sections/about.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/sections/section-map.ts",
+      "target": "file:components/sections/experience.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/sections/section-map.ts",
+      "target": "file:components/sections/contact.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/sections/section-map.ts",
+      "target": "file:components/lab/lab.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/effects/matrix-rain.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/effects/ascii-background.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:components/effects/dvd-overlay.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:hooks/use-fragment-explosion.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/terminal/portfolio.tsx",
+      "target": "file:hooks/use-easter-eggs.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/ui/ascii-banner.tsx",
+      "target": "file:lib/ascii-art.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    },
+    {
+      "source": "file:components/ui/ascii-banner.tsx",
+      "target": "file:components/effects/glitch-banner.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7,
+      "recoveredFromImportMap": true
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:entry-app-shell",
+      "name": "Entry / App Shell",
+      "description": "Next.js App Router entry points and the single global stylesheet. layout.tsx defines the document shell and theme wiring, page.tsx is the root route that mounts the terminal UI, and globals.css carries the terminal/REPL aesthetic (Tailwind v4 directives, CSS custom properties, terminal chrome styling).",
+      "nodeIds": [
+        "file:app/globals.css",
+        "file:app/layout.tsx",
+        "file:app/page.tsx"
+      ]
+    },
+    {
+      "id": "layer:ui-components",
+      "name": "Terminal & UI Components",
+      "description": "The reusable presentational layer: generic primitives (ascii-banner, simple-icon) plus the terminal-interface components that make up the portfolio REPL (portfolio, scrollback-log, terminal-input, pdf-window) and their co-located tests verifying interactivity and rendering.",
+      "nodeIds": [
+        "file:components/ui/ascii-banner.tsx",
+        "file:components/ui/simple-icon.tsx",
+        "file:components/terminal/portfolio.tsx",
+        "file:components/terminal/portfolio.test.tsx",
+        "file:components/terminal/scrollback-log.tsx",
+        "file:components/terminal/scrollback-log.test.tsx",
+        "file:components/terminal/terminal-input.tsx",
+        "file:components/terminal/pdf-window.tsx",
+        "file:components/terminal/pdf-window.test.tsx"
+      ]
+    },
+    {
+      "id": "layer:sections",
+      "name": "Page Sections",
+      "description": "The content sections of the portfolio page rendered below or alongside the terminal: project sample rendering (experience), biography (about), ways to reach the author (contact), and the section-map helper that translates terminal commands into scroll targets.",
+      "nodeIds": [
+        "file:components/sections/section-map.ts",
+        "file:components/sections/about.tsx",
+        "file:components/sections/experience.tsx",
+        "file:components/sections/contact.tsx"
+      ]
+    },
+    {
+      "id": "layer:effects-easter-eggs",
+      "name": "Visual Effects & Easter Eggs",
+      "description": "Canvas/DOM visual effects that give the terminal its animated, retro-computing character: ascii-background, dvd-overlay (with test), glitch-banner, and matrix-rain. These are the easter-egg surfaces triggered by hidden user input.",
+      "nodeIds": [
+        "file:components/effects/ascii-background.tsx",
+        "file:components/effects/dvd-overlay.tsx",
+        "file:components/effects/dvd-overlay.test.tsx",
+        "file:components/effects/glitch-banner.tsx",
+        "file:components/effects/matrix-rain.tsx"
+      ]
+    },
+    {
+      "id": "layer:lab-experiments",
+      "name": "Lab Experiments",
+      "description": "A sandbox area of playful standalone physics-based experiments reachable from the terminal: a black-hole gravity simulation, a gravity-well interactive demo, and the lab.tsx wrapper that hosts these experiments.",
+      "nodeIds": [
+        "file:components/lab/black-hole.tsx",
+        "file:components/lab/gravity-well.tsx",
+        "file:components/lab/lab.tsx"
+      ]
+    },
+    {
+      "id": "layer:hooks",
+      "name": "Custom Hooks",
+      "description": "Project-specific React hooks and their co-located tests: use-easter-eggs orchestrates hidden keyboard-triggered effects (with matrix, rapid, and base tests), use-fragment-explosion drives retro screen-fragment bursts (with retrigger and base tests), and use-reduced-motion respects user accessibility preferences.",
+      "nodeIds": [
+        "file:hooks/use-easter-eggs.ts",
+        "file:hooks/use-easter-eggs.matrix.test.ts",
+        "file:hooks/use-easter-eggs.rapid.test.ts",
+        "file:hooks/use-easter-eggs.test.ts",
+        "file:hooks/use-fragment-explosion.ts",
+        "file:hooks/use-fragment-explosion.retrigger.test.ts",
+        "file:hooks/use-fragment-explosion.test.tsx",
+        "file:hooks/use-reduced-motion.ts"
+      ]
+    },
+    {
+      "id": "layer:lib-core",
+      "name": "Lib Core",
+      "description": "The non-UI engine of the site: the terminal command system (catalog, resolver, session, plus tests), React context providers (fragment-explosion, run-command), shared domain types and utilities, and ASCII/canvas art generators (ascii-art, canvas-utils, hire-me-art) that produce the on-screen graphics.",
+      "nodeIds": [
+        "file:lib/commands/catalog.ts",
+        "file:lib/commands/resolver.ts",
+        "file:lib/commands/session.ts",
+        "file:lib/commands/commands.test.ts",
+        "file:lib/providers/fragment-explosion.tsx",
+        "file:lib/providers/run-command.tsx",
+        "file:lib/types.ts",
+        "file:lib/utils.ts",
+        "file:lib/canvas-utils.ts",
+        "file:lib/hire-me-art.ts",
+        "file:lib/ascii-art.ts"
+      ]
+    },
+    {
+      "id": "layer:config-tooling",
+      "name": "Config & Tooling",
+      "description": "Project configuration and build/test tooling: framework config (next.config.mjs, tsconfig.json, next-env.d.ts, postcss.config.mjs), linting (eslint.config.mjs), test orchestration (vitest.config.ts, vitest.setup.ts), package manifest, repo hygiene (.gitignore, CLAUDE.md), and GitHub Pages config so the static export serves correctly (public/.nojekyll, public/CNAME).",
+      "nodeIds": [
+        "config:.gitignore",
+        "config:CLAUDE.md",
+        "config:eslint.config.mjs",
+        "config:next-env.d.ts",
+        "config:next.config.mjs",
+        "config:package.json",
+        "config:postcss.config.mjs",
+        "config:tsconfig.json",
+        "config:vitest.config.ts",
+        "config:vitest.setup.ts",
+        "config:public/.nojekyll",
+        "config:public/CNAME"
+      ]
+    },
+    {
+      "id": "layer:docs",
+      "name": "Documentation & Agent Guidance",
+      "description": "Human and agent-facing documentation: the project README, the QA feature guide under docs/, and the CLAD-guided agent assets (.claude/rules/no-casual-rule-rewrites.md and .claude/skills/blog-site-style/SKILL.md) that preserve the terminal-portfolio aesthetic when the codebase is modified.",
+      "nodeIds": [
+        "document:README.md",
+        "document:docs/QA-FEATURE-GUIDE.md",
+        "document:.claude/rules/no-casual-rule-rewrites.md",
+        "document:.claude/skills/blog-site-style/SKILL.md"
+      ]
+    },
+    {
+      "id": "layer:infra-deploy-data",
+      "name": "Deploy & Static Assets",
+      "description": "Continuous-deployment workflow and public static assets: the GitHub Actions pipeline that builds and publishes the static export to GitHub Pages, the site favicon (icon.svg), and the status.json data file served to signal site/app health.",
+      "nodeIds": [
+        "pipeline:.github/workflows/deploy.yml",
+        "file:public/icon.svg",
+        "config:public/status.json"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Project Overview: A Portfolio That Is a REPL",
+      "description": "Start with the README, the project's own story. This is not a traditional portfolio page — the whole site behaves like a terminal: you type `help` and get commands (about, experience, projects, contact, lab, theme, ...). It is built on Next.js (App Router), React 19, and Tailwind v4, and ships as a static export to GitHub Pages. package.json confirms the exact stack and scripts: Next.js 16, React 19.2, Vitest + Testing Library for tests. Read both files to anchor everything that follows.",
+      "nodeIds": [
+        "document:README.md",
+        "config:package.json"
+      ],
+      "languageLesson": "A 'static export' means every page is pre-rendered to plain HTML/JS at build time — no server at runtime. That is why this single-page app can deploy to GitHub Pages."
+    },
+    {
+      "order": 2,
+      "title": "App Shell: From Route to Terminal",
+      "description": "Trace the Next.js App Router entry points. layout.tsx defines the document shell — metadata, viewport, and the <html>/<body> wrapper that imports the global styles. page.tsx is the single root route of the site: it renders the Portfolio terminal inside a FragmentExplosionProvider. next.config.mjs is where the static-export decision lives (`output: 'export'`), plus unoptimized images and a pinned Turbopack root. This is the whole routing surface: one page, one shell.",
+      "nodeIds": [
+        "config:next.config.mjs",
+        "file:app/layout.tsx",
+        "file:app/page.tsx"
+      ],
+      "languageLesson": "In Next.js App Router, `layout.tsx` persists across routes while `page.tsx` is route-specific. With `output: 'export'` there is no server runtime — the layout and page are rendered at build time."
+    },
+    {
+      "order": 3,
+      "title": "The Terminal Aesthetic: Global Styles and Design Tokens",
+      "description": "The REPL look comes from globals.css: Tailwind v4 directives, CSS custom properties for the theme palette (e.g. --primary), and styling for terminal chrome, scrollbars, and effects. Themes are cycled by swapping these custom properties, so the whole page recolors without touching component styles. lib/utils.ts exports `cn`, a className merge helper (clsx + Tailwind twMerge) used everywhere to compose conditional classes safely.",
+      "nodeIds": [
+        "file:app/globals.css",
+        "file:lib/utils.ts"
+      ],
+      "languageLesson": "CSS custom properties (variables) are the backbone of theming: components read var(--primary) at render time, so changing the variable recolors every consumer instantly."
+    },
+    {
+      "order": 4,
+      "title": "UI Primitives: Icons and ASCII Banners",
+      "description": "Before the terminal itself, look at the smallest building blocks. simple-icon.tsx renders SVG icons with optional title/className, merging classes via `cn`. ascii-banner.tsx renders the ASCII 'regis' figlet art from lib/ascii-art.ts and decorates it with a glitch effect. These two primitives show the design system's two visual languages: crisp SVG glyphs and chunky terminal ASCII art.",
+      "nodeIds": [
+        "file:components/ui/simple-icon.tsx",
+        "file:components/ui/ascii-banner.tsx",
+        "file:lib/ascii-art.ts"
+      ],
+      "languageLesson": "Separating 'art data' (ascii-art.ts: plain string arrays) from 'art renderer' (ascii-banner.tsx: React component) lets tests and other consumers reuse the art without mounting components."
+    },
+    {
+      "order": 5,
+      "title": "The REPL Hub: portfolio.tsx",
+      "description": "This is the heart of the project and the biggest fan-in node. portfolio.tsx implements the interactive REPL: it manages the command input, renders the scrollback log, mounts the content sections, wires the RunCommandProvider context, and coordinates the easter-egg hooks. Nearly everything on the page is a section or effect that this component decides to show based on what the user types. Understand this file and you understand the site's choreography.",
+      "nodeIds": [
+        "file:components/terminal/portfolio.tsx"
+      ],
+      "languageLesson": "This is a 'smart container' pattern: portfolio.tsx holds state and orchestration while delegating visual details to dumb presentational children (scrollback-log, sections)."
+    },
+    {
+      "order": 6,
+      "title": "Input and Output: TerminalInput and ScrollbackLog",
+      "description": "The two workhorses of the terminal surface. terminal-input.tsx handles submission and editing UX: up/down arrow history navigation, tab completion sourced from the command catalog, a shake-on-error animation for unknown commands, and focus management. scrollback-log.tsx displays the output lines with auto-scroll behavior, tracking container resizes via ResizeObserver. Together they turn a div into something that feels like a real shell.",
+      "nodeIds": [
+        "file:components/terminal/terminal-input.tsx",
+        "file:components/terminal/scrollback-log.tsx"
+      ],
+      "languageLesson": "Tab completion is data-driven: the input field asks the command catalog for completions rather than hardcoding them, so new commands automatically become tab-completable."
+    },
+    {
+      "order": 7,
+      "title": "The Command System: Catalog, Resolver, Session",
+      "description": "The site's 'brain'. catalog.ts is the fan-in hub exporting TAB_COMPLETE_COMMANDS, section aliases, and static command responses. resolver.ts exposes getStaticResponse, which normalizes a typed command and delegates to the right handler. session.ts adds stateless helpers — shuffling and popping 'secret' commands so easter eggs don't repeat immediately. This three-file pipeline is what maps `help`, `about`, or a hidden trigger to something rendered in the scrollback.",
+      "nodeIds": [
+        "file:lib/commands/catalog.ts",
+        "file:lib/commands/resolver.ts",
+        "file:lib/commands/session.ts"
+      ],
+      "languageLesson": "Separation of concerns in a command pipeline: catalog = data (what commands exist), resolver = logic (how input maps to output), session = state helpers (avoiding immediate repeats). Pure functions make this trivially unit-testable."
+    },
+    {
+      "order": 8,
+      "title": "Domain Types and the Theme System",
+      "description": "lib/types.ts is tiny but central: it exports THEMES, a readonly list of themes used for cycling and validation. Because the command system and the UI both depend on it, this module is a dependency hub — change the theme list here and the `theme` command, the type checks, and the CSS variables all stay in sync. It is the contract between the command layer and the rendering layer.",
+      "nodeIds": [
+        "file:lib/types.ts"
+      ],
+      "languageLesson": "A small, dependency-free types module is a cheap way to share a domain contract (which themes exist) across command logic and UI without creating circular imports."
+    },
+    {
+      "order": 9,
+      "title": "Content Sections: What the Commands Reveal",
+      "description": "The sections are the actual portfolio content. section-map.ts exports SECTION_COMPONENTS, mapping section keys (typed by lib/types) to React components — the translation layer that turns a `projects`-style command into a scroll target. about.tsx has a typewriter phrase cycle and runnable command links; experience.tsx renders expandable role cards with tech tags and can open a PDF presentation window (pdf-window.tsx, an accessible focus-trapped modal); contact.tsx lists social links with a copy-to-clipboard email helper.",
+      "nodeIds": [
+        "file:components/sections/section-map.ts",
+        "file:components/sections/about.tsx",
+        "file:components/sections/experience.tsx",
+        "file:components/sections/contact.tsx",
+        "file:components/terminal/pdf-window.tsx"
+      ],
+      "languageLesson": "The section-map indirection means portfolio.tsx never imports section components directly — it resolves them by key, keeping the hub decoupled from content and making sections swappable."
+    },
+    {
+      "order": 10,
+      "title": "Context Providers: run() and the Fragment Explosion",
+      "description": "Two React context providers glue the terminal to the rest of the page. run-command.tsx exposes a run() callback through context so deep components (like about.tsx's command links) can execute terminal commands without prop drilling. fragment-explosion.tsx exposes a fragment-explosion signal backed by the use-fragment-explosion hook, which shatters an element's text into animated per-letter fragments through flash/burst/falling phases — the 'shatter/crash' easter egg from the README, wired in at the very top of the tree by page.tsx.",
+      "nodeIds": [
+        "file:lib/providers/run-command.tsx",
+        "file:lib/providers/fragment-explosion.tsx",
+        "file:hooks/use-fragment-explosion.ts"
+      ],
+      "languageLesson": "Context providers are the idiomatic way to share imperative capabilities (run a command, trigger an explosion) across a component tree without threading callbacks through every prop."
+    },
+    {
+      "order": 11,
+      "title": "Easter Eggs: Effects and the Hooks That Drive Them",
+      "description": "The retro-computing character comes from hidden triggers. use-easter-eggs.ts orchestrates timed visual effects (matrix rain, glitch, upside-down, DVD bounce) and cancels pending timers on rapid re-trigger. use-reduced-motion.ts is an SSR-safe hook tracking the prefers-reduced-motion media query so effects respect accessibility. The effects themselves are canvas/DOM animations: matrix-rain.tsx (multi-script glyph rain), glitch-banner.tsx (character-by-character scramble, fed by hire-me-art.ts figlet rows), dvd-overlay.tsx (DVD-screensaver physics), and ascii-background.tsx (a domain-warped noise field).",
+      "nodeIds": [
+        "file:hooks/use-easter-eggs.ts",
+        "file:hooks/use-reduced-motion.ts",
+        "file:components/effects/matrix-rain.tsx",
+        "file:components/effects/glitch-banner.tsx",
+        "file:components/effects/dvd-overlay.tsx",
+        "file:components/effects/ascii-background.tsx",
+        "file:lib/hire-me-art.ts"
+      ],
+      "languageLesson": "Timing bugs in effects come from uncleared timers — this code cancels pending timers on re-trigger and unmount (see the rapid and matrix tests), the standard fix for 'phantom' animations."
+    },
+    {
+      "order": 12,
+      "title": "The Lab: Canvas Physics Experiments",
+      "description": "The `lab` command opens a sandbox of playful, standalone canvas experiments. lab.tsx is the terminal-styled host that staggers line reveals around two experiments: gravity-well.tsx simulates particles orbiting a pointer-dragged attractor with Keplerian velocities, and black-hole.tsx ray-marches an ASCII accretion disk around an event horizon with gravitational lensing. lib/canvas-utils.ts is their shared helper: it resolves any CSS custom property to an sRGB tuple via a 1x1 canvas readback, so the lab art matches the active theme palette.",
+      "nodeIds": [
+        "file:components/lab/lab.tsx",
+        "file:components/lab/gravity-well.tsx",
+        "file:components/lab/black-hole.tsx",
+        "file:lib/canvas-utils.ts"
+      ],
+      "languageLesson": "Canvas readback (drawing a color to a 1x1 canvas and reading pixels) is a reliable way to convert CSS color strings like var(--primary) into numeric RGB for WebGL/canvas math."
+    },
+    {
+      "order": 13,
+      "title": "Testing: Vitest, Testing Library, and the Command Pipeline",
+      "description": "The project treats the terminal as a serious piece of software. vitest.config.ts runs tests in jsdom with the @ alias mapped to the project root; vitest.setup.ts registers @testing-library/jest-dom matchers. commands.test.ts asserts getStaticResponse output and — notably — that secret commands are not exposed in tab completion; portfolio.test.tsx drives the real UI with a run() helper that types into the terminal and asserts the rendered result. Tests are co-located with their components throughout the repo.",
+      "nodeIds": [
+        "config:vitest.config.ts",
+        "config:vitest.setup.ts",
+        "file:lib/commands/commands.test.ts",
+        "file:components/terminal/portfolio.test.tsx",
+        "document:docs/QA-FEATURE-GUIDE.md"
+      ],
+      "languageLesson": "jsdom + Testing Library test 'what the user sees': render the real component, type real input, assert real output — the same loop a browser test would, without a browser."
+    },
+    {
+      "order": 14,
+      "title": "Deploy: GitHub Actions to GitHub Pages",
+      "description": "The whole point of a static export is painless hosting. deploy.yml runs npm ci + npm run build on push to main (or manual dispatch), uploads the ./out artifact, and deploys it to GitHub Pages via actions/deploy-pages with pages/id-token permissions and a concurrency guard. The static assets make the export serve correctly: public/.nojekyll prevents Jekyll from processing the site, public/CNAME points the custom domain at the pages host, public/icon.svg is the terminal-green favicon, and public/status.json feeds the availability status shown in the terminal.",
+      "nodeIds": [
+        "pipeline:.github/workflows/deploy.yml",
+        "config:public/.nojekyll",
+        "config:public/CNAME",
+        "file:public/icon.svg",
+        "config:public/status.json"
+      ],
+      "languageLesson": "GitHub Pages deployment via OIDC (pages/id-token) avoids storing a deploy token — the workflow requests a short-lived token from the Pages environment at runtime."
+    },
+    {
+      "order": 15,
+      "title": "Agent-Facing Guidance: Rules and Skills",
+      "description": "Finally, the project documents how it wants to be modified. CLAUDE.md is the commit contract: one logical change per commit, imperative Conventional Commits subjects, no 'and', and a fixed author identity. .claude/rules/no-casual-rule-rewrites.md declares that rule files are durable and must not be rewritten without a clear reason. .claude/skills/blog-site-style/SKILL.md instructs agents to preserve the terminal-portfolio aesthetic (dark green + amber palette) when making changes. These files keep future contributors — human or AI — consistent with the README's vision.",
+      "nodeIds": [
+        "config:CLAUDE.md",
+        "document:.claude/rules/no-casual-rule-rewrites.md",
+        "document:.claude/skills/blog-site-style/SKILL.md"
+      ],
+      "languageLesson": "Treating commit conventions and design rules as machine-readable repo files turns 'please keep the style consistent' into an enforceable, checkable contract."
+    }
+  ]
+}
